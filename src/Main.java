@@ -93,6 +93,8 @@ public class Main {
 
         System.out.println(chosenFoodList);
 
+
+
         // Current additional output - Credits Left, Total Search Results, Ex
         String creditsRequested = searchResponse.headers().firstValue("x-api-quota-request").get();
         String creditsLeft = searchResponse.headers().firstValue("X-API-Quota-Left").get();
