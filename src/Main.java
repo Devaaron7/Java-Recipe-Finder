@@ -17,6 +17,7 @@ public class Main {
         System.out.println("Current credit requested by call: " + requested);
         System.out.println("Current amount used today: " + used);
         System.out.println("Current amount left for today: " + left);
+        System.out.println("yoooooo");
     }
 
 
