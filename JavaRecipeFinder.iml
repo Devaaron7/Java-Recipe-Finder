@@ -10,7 +10,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/Python Projects/learning java/jackson-annotations-2.13.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jackson-annotations-2.13.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,7 +19,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/Python Projects/learning java/jackson-core-2.13.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jackson-core-2.13.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +28,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/Python Projects/learning java/jackson-databind-2.13.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jackson-databind-2.13.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -37,7 +37,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/Python Projects/learning java/json-simple-1.1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/json-simple-1.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
