@@ -26,8 +26,15 @@ public class Main {
         // Prompts user to choose search mode
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
-        Integer choice = scan.nextInt();
+        int choice = 0;
+        try {
+            choice = scan.nextInt();
 
+        } catch (Exception e){
+            System.out.println("Please enter a valid choice...");
+        }
+
+        scan.nextLine();
         String results = null;
         SearchConnect food = new SearchConnect();
 
@@ -48,6 +55,9 @@ public class Main {
                 // Json String Body from the HTTP response
                 results = searchResponse.body();
 
+                //System.out.println(choice);
+                break;
+
             } else if (choice == 2) {
 
                 // Prompts user to enter string search term
@@ -66,10 +76,17 @@ public class Main {
 
                 // Json String Body from the HTTP response
                 results = searchResponse.body();
+                //System.out.println(choice);
+                break;
 
             } else {
-                break;
+                System.out.println("Please enter a valid choice...");
+                System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
+                //System.out.println(choice);
+                choice = scan.nextInt();
+                scan.nextLine();
             }
+
 
         }
 
@@ -77,7 +94,7 @@ public class Main {
 
         // Using Jackson Library to create a JSON Node object from the Json String
         ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode api = objectMapper.readTree((String) null);
+        JsonNode api = objectMapper.readTree(results);
 
         // Create Random integer for picking random search result later in the program
         Random randInt = new Random();
@@ -88,6 +105,7 @@ public class Main {
         // is more than 100. Example - Database has 400 items that return for "apple", but the Json will only contain
         // a Maximum of 100. To avoid out of bounds index issues, setting up a conditional that will ensure we stay
         // within the correct range.
+//        System.out.println(results);
         if (api.get("totalResults").asInt() > 100) {
             max = 99;
         } else {

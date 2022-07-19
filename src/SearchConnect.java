@@ -38,8 +38,8 @@ public class SearchConnect {
         HttpRequest request = HttpRequest
                 .newBuilder()
                 .uri(URI.create("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" +
-                        searchTermOne + ", " +
-                        searchTermTwo + ", "+
+                        searchTermOne + ",+" +
+                        searchTermTwo + ",+"+
                         searchTermThree + "&number=100&apiKey=" +
                         ApiKey.getKey("key")))
                 .GET()
