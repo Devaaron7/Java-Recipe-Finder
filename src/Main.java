@@ -17,29 +17,67 @@ public class Main {
         System.out.println("Current credit requested by call: " + requested);
         System.out.println("Current amount used today: " + used);
         System.out.println("Current amount left for today: " + left);
-        System.out.println("yoooooo");
+        //System.out.println("yoooooo");
     }
 
 
     public static void main(String[] args) throws IOException, InterruptedException, ParseException {
 
-        // Prompts user to enter string search term
+        // Prompts user to choose search mode
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter a search term:");
-        String searchTerm = scan.nextLine();
+        System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
+        Integer choice = scan.nextInt();
 
-        // Creating Search Object that will return JSON String Body
+        String results = null;
         SearchConnect food = new SearchConnect();
-        HttpResponse<String> searchResponse = food.search(searchTerm);
 
+        HttpResponse<String> searchResponse = null;
 
-        // Json String Body from the HTTP response
-        String results = searchResponse.body();
+        while (choice != 1 || choice != 2) {
+
+            if (choice == 1) {
+
+                // Prompts user to enter string search term
+                System.out.println("Enter a search term:");
+                String searchTerm = scan.nextLine();
+
+                // Creating Search Object that will return JSON String Body
+
+                searchResponse = food.searchTitle(searchTerm);
+
+                // Json String Body from the HTTP response
+                results = searchResponse.body();
+
+            } else if (choice == 2) {
+
+                // Prompts user to enter string search term
+                System.out.println("Enter the first ingredient:");
+                String ingredientOne = scan.nextLine();
+
+                System.out.println("Enter the second ingredient:");
+                String ingredientTwo = scan.nextLine();
+
+                System.out.println("Enter the last ingredient:");
+                String ingredientThree = scan.nextLine();
+
+                // Creating Search Object that will return JSON String Body
+
+                searchResponse = food.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
+
+                // Json String Body from the HTTP response
+                results = searchResponse.body();
+
+            } else {
+                break;
+            }
+
+        }
+
 
 
         // Using Jackson Library to create a JSON Node object from the Json String
         ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode api = objectMapper.readTree(results);
+        JsonNode api = objectMapper.readTree((String) null);
 
         // Create Random integer for picking random search result later in the program
         Random randInt = new Random();
