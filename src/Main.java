@@ -62,13 +62,16 @@ public class Main {
 
                 // Prompts user to enter string search term
                 System.out.println("Enter the first ingredient:");
-                String ingredientOne = scan.nextLine();
+                //String ingredientOne = scan.nextLine();
+                String ingredientOne = "flour";
 
                 System.out.println("Enter the second ingredient:");
-                String ingredientTwo = scan.nextLine();
+                //String ingredientTwo = scan.nextLine();
+                String ingredientTwo = "sugar";
 
                 System.out.println("Enter the last ingredient:");
-                String ingredientThree = scan.nextLine();
+                //String ingredientThree = scan.nextLine();
+                String ingredientThree = "oranges";
 
                 // Creating Search Object that will return JSON String Body
 
@@ -100,16 +103,29 @@ public class Main {
         Random randInt = new Random();
         int max = 0;
 
+
+        System.out.println(api.size());
+
+//        // Prints only results that contain at least 1 item in the ingredient search
+//        for (JsonNode items : api) {
+//            if (items.get("usedIngredientCount").asInt() >= 1) {
+//                System.out.println(items);
+//            }
+//
+//        }
+
+        //System.out.println(api.get(0).get("usedIngredientCount"));
+
         // Logic to correct a bug that will cause choosing a random index fail. The total amount of returned food
         // items cannot be larger than 100 due to current limitations, even if the total amount in the database
         // is more than 100. Example - Database has 400 items that return for "apple", but the Json will only contain
         // a Maximum of 100. To avoid out of bounds index issues, setting up a conditional that will ensure we stay
         // within the correct range.
 //        System.out.println(results);
-        if (api.get("totalResults").asInt() > 100) {
+        if (api.size() > 100) {
             max = 99;
         } else {
-            max = api.get("totalResults").asInt();
+            max = api.size();
         }
 
         // Making JSON Object of just the Food Results , ie - Title="Pasta", ID="123456"
