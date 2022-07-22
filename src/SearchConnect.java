@@ -14,7 +14,9 @@ public class SearchConnect {
         // Forming Get Request using the search term provided by user
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create("https://api.spoonacular.com/recipes/complexSearch?query=" + searchTerm + "&number=100&apiKey=" + ApiKey.getKey("key")))
+                .uri(URI.create("https://api.spoonacular.com/recipes/complexSearch?query=" +
+                        searchTerm + "&number=100&apiKey=" +
+                        ApiKey.getKey("key")))
                 .GET()
                 .header("Accept", "application/json")
                 .build();
@@ -64,7 +66,10 @@ public class SearchConnect {
         // Forming Get Request using the search term provided by user
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create("https://api.spoonacular.com/recipes/" + foodId + "/information?includeNutrition=false&&apiKey=" + ApiKey.getKey("key")))
+                .uri(URI.create("https://api.spoonacular.com/recipes/" +
+                        foodId +
+                        "/information?includeNutrition=false&&apiKey=" +
+                        ApiKey.getKey("key")))
                 .GET()
                 .header("Accept", "application/json")
                 .build();
