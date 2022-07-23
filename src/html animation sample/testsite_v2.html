@@ -11,22 +11,53 @@
 <body>
 
 
-    <h1>Welcome to My Website</h1>
-    
-    <button class="btn"  type="search">Click Me!</button>
-    <div>
+    <center><h1>Welcome to My Website</h1></center>
+
+
+    <div class="button_center">
         
 
+        <button id="btn"  type="search" onclick=search()>Search</button>
+        <input id="text" type="text">
+    </div>
+
+    <div class="images" id="img_container" style="display:none">
     
 
-        <img src="./image_1.jpg" alt="#" id="image1">
+        <img src="./image_1.jpg" alt="#" id="image1" height="200" width="300" >
 
-        <img src="./image_2.jpg" alt="#" id="image2">
+       
 
     </div>
     
 
-<script src="index.js"></script>
+<script>
+
+    var counter = 0
+    var restore = document.getElementById('img_container')
+    var saved = restore.innerHTML
+    var img1 = document.getElementById('image1')
+
+    function search() {
+
+        if (counter > 0) {
+            
+            restore.innerHTML = "";
+            restore.innerHTML = saved;
+            
+        }
+
+        document.getElementById('img_container').style.display='flex';
+        counter++
+        
+
+    }
+    
+</script>
+
+
+
+
 <!-- <div class="container">
     <div class="row">
         <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="cat" class="image">
