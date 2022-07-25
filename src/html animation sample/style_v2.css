@@ -5,7 +5,7 @@
 
     display: flex;
     justify-content: center;
-    align-items:top;
+    align-items: center;
     
 }
 
@@ -21,19 +21,80 @@
 }
 
 #image1 {
-
-    
     position: relative;
     animation: mymove1 .5s 1;
     animation-timing-function: linear;
     
 }
+#image2 {
+    position: relative;
+    animation: mymove2 .5s 1;
+    animation-timing-function: linear;
 
+}
 
+#image3 {
+    position: relative;
+    animation: mymove3 .5s 1;
+    animation-timing-function: linear;
 
+}
+#image4 {
+    position: relative;
+    animation: mymove4 .5s 1;
+    animation-timing-function: linear;
 
+}
+#image5 {
+    position: relative;
+    animation: mymove5 .5s 1;
+    animation-timing-function: linear;
 
+}
+#image5 {
+    position: relative;
+    animation: mymove5 .5s 1;
+    animation-timing-function: linear;
+
+}
+#image6 {
+    position: relative;
+    animation: mymove6 .5s 1;
+    animation-timing-function: linear;
+
+}
+#image7 {
+    position: relative;
+    animation: mymove7 .5s 1;
+    animation-timing-function: linear;
+
+}
 @keyframes mymove1 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+
+@keyframes mymove2 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+@keyframes mymove3 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+@keyframes mymove4 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+@keyframes mymove5 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+@keyframes mymove6 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+@keyframes mymove7 {
     from {top: 300px; opacity: .01;}
     to {top: 0px; opacity: 1;}
 }
