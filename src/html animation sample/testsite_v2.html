@@ -11,22 +11,106 @@
 <body>
 
 
-    <h1>Welcome to My Website</h1>
-    
-    <button class="btn"  type="search">Click Me!</button>
-    <div>
+    <center><h1>Welcome to My Website</h1></center>
+
+    <center><p id="api">0</p></center>
+
+    <center><p id="error"></p></center>
+
+
+
+
+    <div class="button_center">
         
 
+        <button id="btn"  type="search" onclick=search()>Click Me!</button>
+    </div>
+
+    <div class="images" id="img_container" style="display:none">
     
 
-        <img src="./image_1.jpg" alt="#" id="image1">
+        <img src="" alt="#" id="image1" height="200" width="300" >
 
-        <img src="./image_2.jpg" alt="#" id="image2">
+        <img src="" alt="#" id="image2" height="200" width="300">
+
+        <img src="" alt="#" id="image3" height="200" width="300">
 
     </div>
     
 
-<script src="index.js"></script>
+<script>
+
+    var counter = 0
+    var restore = document.getElementById('img_container')
+    var saved = restore.innerHTML
+    var img1 = document.getElementById('image1')
+    var img2 = document.getElementById('image2')
+    var img3 = document.getElementById('image3')
+
+    //var apiCounter = document.getElementById('api')
+
+    function search() {
+
+
+        api()
+
+        //console.log(counter % 2 == 0);
+
+        if (counter % 2 == 0) {
+            img1.src = "./image_4.jpg";
+            img2.src = "./image_5.jpg";
+            img3.src = "./image_6.jpg";
+            var restore = document.getElementById('img_container')
+            var saved = restore.innerHTML
+        
+        } else {
+            img1.src = "./image_1.jpg";
+            img2.src = "./image_2.jpg";
+            img3.src = "./image_3.jpg";
+            var restore = document.getElementById('img_container')
+            var saved = restore.innerHTML
+            
+        }
+
+        if (counter > 0) {
+            
+            restore.innerHTML = "";
+            restore.innerHTML = saved;
+            
+        }
+
+        
+        document.getElementById('img_container').style.display='flex';
+        
+
+        
+        counter++
+        
+
+    }
+
+    function api() {
+
+
+        var apiCounter = document.getElementById('api').innerText = Math.floor(Math.random() * 5);
+
+        var errorText = document.getElementById('error').innerText
+
+        if (apiCounter == 0) { 
+            errorText = "OUT OF CREDIT"
+        }
+
+
+
+        //console.log("hello");
+    }
+
+    
+</script>
+
+
+
+
 <!-- <div class="container">
     <div class="row">
         <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="cat" class="image">

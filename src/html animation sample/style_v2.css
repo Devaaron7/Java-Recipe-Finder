@@ -1,27 +1,46 @@
 
 
-.btn:focus + #image1 {
 
-    display: none;
+.button_center {
 
+    display: flex;
+    justify-content: center;
+    align-items:center
+    
 }
 
 
-div {
+
+.images {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
-    /* width: 100px;
-    height: 50px;
-    background-color: red;
-    font-weight: bold;
-    position: relative; */
     
 }
 
 #image1 {
 
-    position: relative;
-    animation: mymove1 1s 1;
     
+    position: relative;
+    animation: mymove1 .5s 1;
+    animation-timing-function: linear;
+    
+}
+
+#image2 {
+    
+    position: relative;
+    animation: mymove2 .6s 1;
+    animation-timing-function: linear;
+    
+}
+
+#image3 {
+    
+    position: relative;
+    animation: mymove3 .7s 1;
     animation-timing-function: linear;
     
 }
@@ -38,14 +57,11 @@ div {
     to {top: 0px; opacity: 1;}
 }
 
-
-
-#image2 {
-    position: relative;
-    animation: mymove2 1.1s 1;
-    animation-timing-function: linear;
-    
+@keyframes mymove3 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
 }
+
 
 
 
