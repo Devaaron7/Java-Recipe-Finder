@@ -13,105 +13,32 @@ import org.json.simple.parser.ParseException;
 
 public class Main {
 
-
-    //static SearchConnect food = new SearchConnect();
-
     public static void creditStatus(String left, String used, String requested) {
         System.out.println("Current credit requested by call: " + requested);
         System.out.println("Current amount used today: " + used);
         System.out.println("Current amount left for today: " + left);
     }
 
-
     public static void main(String[] args) throws IOException, InterruptedException, ParseException {
 
-        // Prompts user to choose search mode
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
-        int choice = 0;
-        try {
-            choice = scan.nextInt();
+        // Class that takes input from user and returns the JSON response
+        String results = Input.term();
 
-        } catch (Exception e){
-            System.out.println("Please enter a valid choice...");
-        }
-
-        scan.nextLine();
-        String results = null;
-
-
-        HttpResponse<String> searchResponse = null;
-
-        while (choice != 1 || choice != 2) {
-
-            if (choice == 1) {
-
-                // Prompts user to enter string search term
-                System.out.println("Enter a search term:");
-                String searchTerm = scan.nextLine();
-
-                // Creating Search Object that will return JSON String Body
-
-                searchResponse = SearchConnect.searchTitle(searchTerm);
-
-                // Json String Body from the HTTP response
-                results = searchResponse.body();
-
-                //System.out.println(choice);
-                break;
-
-            } else if (choice == 2) {
-
-                // Prompts user to enter string search term
-                System.out.println("Enter the first ingredient:");
-                //String ingredientOne = scan.nextLine();
-                String ingredientOne = "cheese";
-
-                System.out.println("Enter the second ingredient:");
-                //String ingredientTwo = scan.nextLine();
-                String ingredientTwo = "flour";
-
-                System.out.println("Enter the last ingredient:");
-                //String ingredientThree = scan.nextLine();
-                String ingredientThree = "tomatosauce";
-
-                // Creating Search Object that will return JSON String Body
-
-                searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
-
-                // Json String Body from the HTTP response
-                results = searchResponse.body();
-                //System.out.println(choice);
-                break;
-
-            } else {
-                System.out.println("Please enter a valid choice...");
-                System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
-                //System.out.println(choice);
-                choice = scan.nextInt();
-                scan.nextLine();
-            }
-
-        }
-
+        // Logic that chooses correct class method to interpret JSON response based on user choice
         ArrayList<HashMap> output;
-
-        if (choice == 1) {
+        if (Input.choice == 1) {
             output = JsonFormatter.processTitle(results);
         } else {
             output = JsonFormatter.processIngredients(results);
         }
-        // return value from json class
+
+        // Output of formatted JSON to be 3 random results
         System.out.println(output);
 
-
         // Current additional output - Credits Left, Total Search Results, Ex
-        String creditsRequested = searchResponse.headers().firstValue("x-api-quota-request").get();
-        String creditsLeft = searchResponse.headers().firstValue("X-API-Quota-Left").get();
-        String creditsUsed = searchResponse.headers().firstValue("x-api-quota-used").get();
-//        System.out.println("Current Page offset: " + api.get("offset"));
-//        System.out.println("Number of recipes per return: " + api.get("number"));
-//        System.out.println("Total number of recipes that match search: " + api.get("totalResults"));
+        String creditsRequested = Input.searchResponse.headers().firstValue("x-api-quota-request").get();
+        String creditsLeft = Input.searchResponse.headers().firstValue("X-API-Quota-Left").get();
+        String creditsUsed = Input.searchResponse.headers().firstValue("x-api-quota-used").get();
         creditStatus(creditsLeft, creditsUsed, creditsRequested);
 
     }
