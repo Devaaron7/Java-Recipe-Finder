@@ -20,8 +20,10 @@
 
 
 
+
     <div class="button_center">
         
+
 
         <button id="btn"  type="search" onclick=search()>Click Me!</button>
     </div>
@@ -35,10 +37,21 @@
 
         <img src="" alt="#" id="image3" height="200" width="300">
 
+        <button id="btn"  type="search" onclick=search()>Search</button>
+        <input id="text" type="text">
+    </div>
+
+    <div class="images" id="img_container" style="display:none">
+
+
+        <img src="./image_1.jpg" alt="#" id="image7" height="200" width="300" >
+        <img src="./image_2.jpg" alt="#" id="image8" height="200" width="300" >
+        <img src="./image_3.jpg" alt="#" id="image8" height="200" width="300" >
     </div>
     
 
 <script>
+
 
     var counter = 0
     var restore = document.getElementById('img_container')
@@ -104,6 +117,27 @@
 
         //console.log("hello");
     }
+
+
+    // var counter = 0
+    // var restore = document.getElementById('img_container')
+    // var saved = restore.innerHTML
+    // var img1 = document.getElementById('image1')
+
+    // function search() {
+
+    //     if (counter > 0) {
+            
+    //         restore.innerHTML = "";
+    //         restore.innerHTML = saved;
+            
+    //     }
+
+    //     document.getElementById('img_container').style.display='flex';
+    //     counter++
+        
+
+    // }
 
     
 </script>
