@@ -24,7 +24,7 @@
     <div class="button_center">
         
         <button id="btn"  type="search" onclick=search()>Click Me!</button>
-        <input id="text" type="text">
+        <input id="form" type="text">
         
     </div>
 
@@ -52,6 +52,7 @@
     function search() {
 
         api()
+        sendFormData()
         if (counter % 2 == 0) {
             img1.src = "./image_4.jpg";
             img2.src = "./image_5.jpg";
@@ -90,6 +91,19 @@
             errorText = "OUT OF CREDIT"
         }
     }
+
+
+    function sendFormData() {
+        var input = {"data":document.getElementById('form').value};
+
+        fetch("http://localhost:8080/test", {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify(input)
+        }).then(res => {
+        console.log("Request complete! response:", res);
+        });
+            }
 
     
 </script>
