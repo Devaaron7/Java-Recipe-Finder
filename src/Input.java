@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Input {
 
     static int choice = 0;
+    static String secondItem = null;
+    static String thirdItem = null;
     static HttpResponse<String> searchResponse = null;
 
     public static String term() throws IOException, InterruptedException {
@@ -44,9 +46,29 @@ public class Input {
                 System.out.println("Enter the first ingredient:");
                 String ingredientOne = scan.nextLine();
 
+                // Working on logic that will allow up to 3 ingredients
+                System.out.println("Would you like to add another ingredient?");
+                System.out.println("y for Yes, n for No:");
+                secondItem = scan.nextLine();
+                if (secondItem == "n") {
+                    String ingredientTwo = "";
+                    String ingredientThree = "";
+                    searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
+                    break;
+                }
+
+
 
                 System.out.println("Enter the second ingredient:");
                 String ingredientTwo = scan.nextLine();
+                System.out.println("Would you like to a final ingredient?");
+                System.out.println("y for Yes, n for No:");
+                thirdItem = scan.nextLine();
+                if (thirdItem == "n") {
+                    String ingredientThree = "";
+                    searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
+                    break;
+                }
 
 
                 System.out.println("Enter the last ingredient:");
