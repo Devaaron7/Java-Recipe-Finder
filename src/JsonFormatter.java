@@ -57,14 +57,13 @@ public class JsonFormatter {
 
             // Logic to ensure number choice isn't reused by checking array for past choices
             boolean running = true;
-            int tempNum = randInt.nextInt(max);
+
             while (running) {
+                int tempNum = randInt.nextInt(max);
                 if (usedNum.contains(tempNum) == false) {
                     chosenRecipesId.add(recipeResults.get(tempNum).get("id"));
                     usedNum.add(tempNum);
                     running = false;
-                } else {
-                    break;
                 }
             }
 
