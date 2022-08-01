@@ -50,12 +50,16 @@ public class Input {
                 System.out.println("Would you like to add another ingredient?");
                 System.out.println("y for Yes, n for No:");
                 secondItem = scan.nextLine();
-                if (secondItem == "n") {
+
+                if (secondItem.equals("n") ) {
                     String ingredientTwo = "";
                     String ingredientThree = "";
                     searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
+                    results = searchResponse.body();
                     break;
                 }
+
+                //System.out.println(secondItem == "n");
 
 
 
@@ -64,9 +68,10 @@ public class Input {
                 System.out.println("Would you like to a final ingredient?");
                 System.out.println("y for Yes, n for No:");
                 thirdItem = scan.nextLine();
-                if (thirdItem == "n") {
+                if (thirdItem.equals("n") ) {
                     String ingredientThree = "";
                     searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
+                    results = searchResponse.body();
                     break;
                 }
 
