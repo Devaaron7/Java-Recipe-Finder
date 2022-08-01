@@ -1,3 +1,5 @@
+package com.example.javarecipefinder.recipeapp;
+
 import java.io.IOException;
 import java.net.http.HttpResponse;
 import java.util.Scanner;

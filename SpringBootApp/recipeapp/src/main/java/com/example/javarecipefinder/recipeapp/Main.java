@@ -1,3 +1,5 @@
+package com.example.javarecipefinder.recipeapp;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -9,7 +11,8 @@ import java.util.Scanner;
 import java.util.Random;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.simple.parser.ParseException;
+import com.example.javarecipefinder.recipeapp.Input;
+import com.example.javarecipefinder.recipeapp.JsonFormatter;
 
 public class Main {
 
@@ -19,7 +22,7 @@ public class Main {
         System.out.println("Current amount left for today: " + left);
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException, ParseException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         // Class that takes input from user and returns the JSON response
         String results = Input.term();
