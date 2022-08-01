@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Input {
 
-    static int choice = 0;
+    static int choice = 1;
     static String secondItem = null;
     static String thirdItem = null;
     static HttpResponse<String> searchResponse = null;
@@ -14,15 +14,15 @@ public class Input {
     public static String term() throws IOException, InterruptedException {
         // Prompts user to choose search mode
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
-
-
-        try {
-            choice = scan.nextInt();
-
-        } catch (Exception e){
-            System.out.println("Please enter a valid choice...");
-        }
+//        System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
+//
+//
+//        try {
+//            choice = scan.nextInt();
+//
+//        } catch (Exception e){
+//            System.out.println("Please enter a valid choice...");
+//        }
 
         scan.nextLine();
         String results = null;
@@ -34,6 +34,7 @@ public class Input {
                 // Prompts user to enter string search term
                 System.out.println("Enter a search term:");
                 String searchTerm = scan.nextLine();
+
 
                 // Creating Search Object that will return JSON String Body
                 searchResponse = SearchConnect.searchTitle(searchTerm);
