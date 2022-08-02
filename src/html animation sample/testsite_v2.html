@@ -17,7 +17,15 @@
 
     <center><p id="error"></p></center>
 
+    <center>
 
+        <input type="radio" id="ModeSelectTitle" name="ModeSelect" value="title" onclick=showTitle();>
+        <label for="html">Title Search</label>
+
+        <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient">
+            <label for="html">Ingredient Search</label>
+
+    </center>
 
 
 
@@ -25,9 +33,11 @@
         
         <button id="btn"  type="search" onclick=search()>Click Me!</button>
         <input id="form" type="text">
+        
         <!-- <input id="form2" type="text"> -->
         
     </div>
+    <br>
 
 
     <div class="images" id="img_container" style="display:none">
@@ -49,7 +59,8 @@
     var img1 = document.getElementById('image1')
     var img2 = document.getElementById('image2')
     var img3 = document.getElementById('image3')
-
+    var titleBtn = document.getElementById('ModeSelectTitle')
+    var titleInput = document.getElementById('form')
 
     function search() {
 
@@ -137,6 +148,20 @@
             }
 
     
+    function showTitle() {
+
+        console.log("Hellllooo");
+        if (titleBtn.checked) {
+            //console.log(titleBtn.checked);
+            titleInput.style.display = "visible";
+            console.log("On");
+        } else {
+            titleInput.style.display = "hidden";
+            console.log("Off")
+        }
+    }
+
+
 </script>
 
 </body>
