@@ -29,7 +29,7 @@
 
 
 
-    <div class="button_center">
+    <div class="button_center" id="buttons" style="display:none">
         
         <button id="btn"  type="search" onclick=search()>Click Me!</button>
         <input id="form" type="text">
@@ -60,7 +60,7 @@
     var img2 = document.getElementById('image2')
     var img3 = document.getElementById('image3')
     var titleBtn = document.getElementById('ModeSelectTitle')
-    var titleInput = document.getElementById('form')
+    var titleInput = document.getElementById('buttons')
 
     function search() {
 
@@ -153,7 +153,7 @@
         console.log("Hellllooo");
         if (titleBtn.checked) {
             //console.log(titleBtn.checked);
-            titleInput.style.display = "visible";
+            titleInput.style.display = "flex";
             console.log("On");
         } else {
             titleInput.style.display = "hidden";
