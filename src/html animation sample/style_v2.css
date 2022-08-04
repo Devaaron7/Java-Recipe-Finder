@@ -9,6 +9,15 @@
     
 }
 
+.tags {
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    
+    
+}
+
 
 
 .images {

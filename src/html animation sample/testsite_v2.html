@@ -22,21 +22,35 @@
         <input type="radio" id="ModeSelectTitle" name="ModeSelect" value="title" onclick=showTitle();>
         <label for="html">Title Search</label>
 
-        <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient">
+        <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient" onclick=showIngredient();>
             <label for="html">Ingredient Search</label>
 
     </center>
+    <br>
 
 
 
     <div class="button_center" id="buttons" style="display:none">
         
-        <button id="btn"  type="search" onclick=search()>Click Me!</button>
+        <!-- <button id="btn"  type="search" onclick=search()>Click Me!</button> -->
+        <input type="image" id="add"  type="search" onclick=search() height="20px" src="./assets/plus.png" style="display:none" />
         <input id="form" type="text">
+        <input type="image" id="btn"  type="search" onclick=search() height="35px" src="./assets/search.png" />
+
+        
+
         
         <!-- <input id="form2" type="text"> -->
         
     </div>
+
+    
+    <div class="tags" id="ingredients" style="display:none">
+        <p id="tagOne">One&emsp;</p>
+        <p id="tagTwo">Two&emsp;</p>
+        <p id="tagThree">Three&emsp;</p>
+    </div>
+    
     <br>
 
 
@@ -61,6 +75,8 @@
     var img3 = document.getElementById('image3')
     var titleBtn = document.getElementById('ModeSelectTitle')
     var titleInput = document.getElementById('buttons')
+    var addIngredient = document.getElementById('add')
+    var showTags = document.getElementById('ingredients')
 
     function search() {
 
@@ -150,15 +166,21 @@
     
     function showTitle() {
 
-        console.log("Hellllooo");
-        if (titleBtn.checked) {
-            //console.log(titleBtn.checked);
-            titleInput.style.display = "flex";
-            console.log("On");
-        } else {
-            titleInput.style.display = "hidden";
-            console.log("Off")
-        }
+        titleInput.style.display = "flex";
+        addIngredient.style.display = "none";
+        showTags.style.display = "none";
+        document.getElementById('btn').innerHTML = "Title Search";
+            
+    }
+
+    function showIngredient() {
+
+        titleInput.style.display = "flex";
+        addIngredient.style.display = "flex";
+        showTags.style.display = "flex";
+
+        document.getElementById('btn').innerHTML = "Ingredient Search";
+        
     }
 
 
