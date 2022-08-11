@@ -5,8 +5,13 @@
 
     display: flex;
     justify-content: center;
-    align-items:center
+    align-items:center;
     
+    
+}
+
+.button_center input {
+    text-align: center;
 }
 
 .tags {

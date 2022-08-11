@@ -7,6 +7,7 @@
     <title>My Website</title>
     <link rel="stylesheet" href="./style_v2.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    
 </head>
 <body>
 
@@ -32,23 +33,19 @@
 
     <div class="button_center" id="buttons" style="display:none">
         
-        <!-- <button id="btn"  type="search" onclick=search()>Click Me!</button> -->
-        <input type="image" id="add"  type="search" onclick=search() height="20px" src="./assets/plus.png" style="display:none" />
-        <input id="form" type="text">
-        <input type="image" id="btn"  type="search" onclick=search() height="35px" src="./assets/search.png" />
-
         
+        <input type="image" id="add"  type="search"  onclick=addTag() height="20px" src="./assets/plus.png" style="display:none" />
+        <input id="form" type="text" oninput=showIconTitle()>
+        <input type="image" id="btn"  type="search"  onclick=search() height="35px" src="./assets/search.png" style="display:none" />
 
-        
-        <!-- <input id="form2" type="text"> -->
         
     </div>
 
     
     <div class="tags" id="ingredients" style="display:none">
-        <p id="tagOne">One&emsp;</p>
-        <p id="tagTwo">Two&emsp;</p>
-        <p id="tagThree">Three&emsp;</p>
+        <p id="tagOne">&emsp;</p>
+        <p id="tagTwo">&emsp;</p>
+        <p id="tagThree">&emsp;</p>
     </div>
     
     <br>
@@ -63,128 +60,9 @@
     </div>
     
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<script>
-
-
-    var counter = 0
-    var restore = document.getElementById('img_container')
-    var saved = restore.innerHTML
-    var img1 = document.getElementById('image1')
-    var img2 = document.getElementById('image2')
-    var img3 = document.getElementById('image3')
-    var titleBtn = document.getElementById('ModeSelectTitle')
-    var titleInput = document.getElementById('buttons')
-    var addIngredient = document.getElementById('add')
-    var showTags = document.getElementById('ingredients')
-
-    function search() {
-
-        api()
-        sendFormData()
-        if (counter % 2 == 0) {
-            img1.src = "./image_4.jpg";
-            img2.src = "./image_5.jpg";
-            img3.src = "./image_6.jpg";
-            var restore = document.getElementById('img_container')
-            var saved = restore.innerHTML
-        } else {
-            img1.src = "./image_1.jpg";
-            img2.src = "./image_2.jpg";
-            img3.src = "./image_3.jpg";
-            var restore = document.getElementById('img_container')
-            var saved = restore.innerHTML
-        }
-
-        if (counter > 0) {
-            
-            restore.innerHTML = "";
-            restore.innerHTML = saved;
-            
-        }
-
-        document.getElementById('img_container').style.display='flex';
-        counter++
-    }
+<script src="./js/script.js"></script>
 
 
-
-
-
-    function api() {
-
-        /// Kyle Continue work here. We need the website to change into "nightmode" is the counter displays 0
-        var apiCounter = document.getElementById('api').innerText = Math.floor(Math.random() * 5);
-        var errorText = document.getElementById('error').innerText
-        if (apiCounter == 0) { 
-            errorText = "OUT OF CREDIT"
-        }
-    }
-
-
-    function sendFormData() {
-        // URL = "http://localhost:8080/test"
-        // var input = {"num1":document.getElementById('form1').value, "num2":document.getElementById('form2').value};
-
-        var input = {"data":document.getElementById('form').value};
-
-        // $.ajax({
-        // type: "POST",
-        // url: URL,
-        // data: JSON.stringify({ "data": document.getElementById('form').value}),
-        // contentType: "application/json",
-        // success: function (result) {
-        //     console.log(result);
-        //     //if(result == "Account Successfully Created!"){
-        //     //register_success();
-        //     // }else{
-        //     // register_error(result);
-        //     // }
-        // },
-        // error: function (result) {
-        //     console.log(result);
-        //     // document.getElementById("error").innerText = 'Error trying to connect';
-        //     // document.getElementById("error").style.color = 'red';
-        // }
-        // });}
-
-
-
-
-        console.log(JSON.stringify(input));
-
-        fetch("http://localhost:8080/test", {
-        method: "POST",
-        headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
-        body: JSON.stringify(input)
-        }).then(res => {
-        
-        console.log("Request complete! response:", res);
-        });
-            }
-
-    
-    function showTitle() {
-
-        titleInput.style.display = "flex";
-        addIngredient.style.display = "none";
-        showTags.style.display = "none";
-        document.getElementById('btn').innerHTML = "Title Search";
-            
-    }
-
-    function showIngredient() {
-
-        titleInput.style.display = "flex";
-        addIngredient.style.display = "flex";
-        showTags.style.display = "flex";
-
-        document.getElementById('btn').innerHTML = "Ingredient Search";
-        
-    }
-
-
-</script>
 
 </body>
 </html>
