@@ -9,6 +9,7 @@ var searchBtn = document.getElementById('btn')
 var searchTerm = document.getElementById('form')
 var titleInput = document.getElementById('buttons')
 var addIngredient = document.getElementById('add')
+var clearIngredient = document.getElementById('clear')
 var showTags = document.getElementById('ingredients')
 var tagOne = document.getElementById('tagOne')
 var tagTwo = document.getElementById('tagTwo')
@@ -82,6 +83,7 @@ function showTitle() {
 
     titleInput.style.display = "flex";
     addIngredient.style.display = "none";
+    clearIngredient.style.display = "none";
     showTags.style.display = "none";
     document.getElementById('btn').innerHTML = "Title Search";
         
@@ -91,8 +93,20 @@ function showIngredient() {
 
     titleInput.style.display = "flex";
     addIngredient.style.display = "flex";
+    clearIngredient.style.display = "flex";
     showTags.style.display = "flex";
     document.getElementById('btn').innerHTML = "Ingredient Search";
+    
+}
+
+function clearTags() {
+
+    
+    tagCounter = 0;
+    tagOne.innerText = "";
+    tagTwo.innerText = "";
+    tagThree.innerText = "";
+    
     
 }
 
@@ -105,6 +119,7 @@ function showIconTitle() {
 }
 
 function addTag() {
+    
     if (tagCounter == 0) {
         tagOne.innerText = searchTerm.value;
         tagCounter += 1
