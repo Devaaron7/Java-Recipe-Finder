@@ -9,6 +9,7 @@ public class Input {
     static String thirdItem = null;
     static HttpResponse<String> searchResponse = null;
 
+
     public static String term() throws IOException, InterruptedException {
         // Prompts user to choose search mode
         Scanner scan = new Scanner(System.in);
