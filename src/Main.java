@@ -26,7 +26,7 @@ public class Main {
 
         // Logic that chooses correct class method to interpret JSON response based on user choice
         ArrayList<HashMap> output;
-        if (Input.choice == 1) {
+        if (Input.userInput == 1) {
             output = JsonFormatter.processTitle(results);
         } else {
             output = JsonFormatter.processIngredients(results);
