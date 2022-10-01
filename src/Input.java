@@ -49,7 +49,7 @@ public class Input {
                 // Working on logic that will allow up to 3 ingredients
                 System.out.println("Would you like to add another ingredient?");
                 System.out.println("y for Yes, n for No:");
-                secondItem = scan.nextLine();
+                secondItem = scan.nextLine().toLowerCase();
 
                 if (secondItem.equals("n") ) {
                     String ingredientTwo = "";
@@ -57,41 +57,45 @@ public class Input {
                     searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
                     results = searchResponse.body();
                     break;
+                } else if (secondItem.equals("y")) {
+                    System.out.println("Enter the second ingredient:");
+                    String ingredientTwo = scan.nextLine();
+                    System.out.println("Would you like to a final ingredient?");
+                    System.out.println("y for Yes, n for No:");
+                    thirdItem = scan.nextLine().toLowerCase();
+                    if (thirdItem.equals("n") ) {
+                        String ingredientThree = "";
+                        searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
+                        results = searchResponse.body();
+                        break;
+                    } else if (thirdItem.equals("y")) {
+
+                        System.out.println("Enter the last ingredient:");
+                        String ingredientThree = scan.nextLine();
+
+                        // Creating Search Object that will return JSON String Body
+                        searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
+
+                        // Json String Body from the HTTP response
+                        results = searchResponse.body();
+                        break;
+                    }
+                } else {
+                    System.out.println("Invalid choice, please try again.");
+                    Input.term();
                 }
 
                 //System.out.println(secondItem == "n");
 
-
-
-                System.out.println("Enter the second ingredient:");
-                String ingredientTwo = scan.nextLine();
-                System.out.println("Would you like to a final ingredient?");
-                System.out.println("y for Yes, n for No:");
-                thirdItem = scan.nextLine();
-                if (thirdItem.equals("n") ) {
-                    String ingredientThree = "";
-                    searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
-                    results = searchResponse.body();
-                    break;
-                }
-
-
-                System.out.println("Enter the last ingredient:");
-                String ingredientThree = scan.nextLine();
-
-                // Creating Search Object that will return JSON String Body
-                searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
-
-                // Json String Body from the HTTP response
-                results = searchResponse.body();
-                break;
-
             } else {
                 System.out.println("Please enter a valid choice...");
-                System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
-                choice = scan.nextInt();
-                scan.nextLine();
+                Input.term();
+                //System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
+                //choice = scan.nextInt();
+                //scan.nextLine();
             }
+
+            break;
 
         }
 

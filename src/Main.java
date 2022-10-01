@@ -35,6 +35,7 @@ public class Main {
         // Output of formatted JSON to be 3 random results
         System.out.println(output);
 
+
         // Current additional output - Credits Left, Total Search Results, Ex
         String creditsRequested = Input.searchResponse.headers().firstValue("x-api-quota-request").get();
         String creditsLeft = Input.searchResponse.headers().firstValue("X-API-Quota-Left").get();
