@@ -9,10 +9,6 @@ public class Input {
     static String secondItem = null;
     static String thirdItem = null;
     static HttpResponse<String> searchResponse = null;
-    
-    
-    
-    
 
     public static String term() throws IOException, InterruptedException {
 
@@ -26,8 +22,10 @@ public class Input {
         validChoiceStr.add("y");
         validChoiceStr.add("n");
 
+        // Scanner object that reads input from user throughout program
         Scanner scan = new Scanner(System.in);
 
+        // While loop that resets if an invalid choice is entered by User
         boolean isModeSet = false;
         while (!isModeSet) {
 
@@ -42,10 +40,12 @@ public class Input {
                 scan.nextLine();
             } catch (Exception notInt) {
                 System.out.println("Please enter a valid choice...");
+                scan.nextLine();
                 continue;
             }
             if (validChoiceInt.contains(userInput) != true) {
                 System.out.println("Please enter a valid choice...");
+                //scan.nextLine();
                 continue;
             }else{
                 isModeSet = true;
@@ -53,8 +53,11 @@ public class Input {
 
         }
 
+        // Initialize string that will be overwritten with search results after user inputs
         String results = null;
 
+
+        // Conditional for the title search feature
         if (userInput == 1) {
 
             // Prompts user to enter string search term
@@ -68,6 +71,8 @@ public class Input {
             results = searchResponse.body();
         }
 
+        // Conditional for the ingredient search feature.
+        // Uses While loop to ensure valid choices per additional ingredient
         if (userInput == 2) {
 
             // Prompts user to enter string search term
