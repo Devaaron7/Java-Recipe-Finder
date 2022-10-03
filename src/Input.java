@@ -131,10 +131,10 @@ public class Input {
                     System.out.println("Enter the last ingredient:");
                     String ingredientThree = scan.nextLine();
 
-                    // Creating Search Object that will return JSON String Body
+
                     searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
 
-                    // Json String Body from the HTTP response
+
                     results = searchResponse.body();
 
                 }
