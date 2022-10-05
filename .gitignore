@@ -4,3 +4,5 @@ src/secret/ApiKey.java
 SpringBootApp/recipeapp/src/main/java/com/example/javarecipefinder/recipeapp/secret/ApiKey.java
 ConsoleApp/secret/ApiKey.java
 JAVA Backend/src/secret/ApiKey.java
+JAVA Backend/SpringBootApp/recipeapp/src/main/java/com/example/javarecipefinder/recipeapp/secret/ApiKey.java
+out/production/JAVA Backend/secret/ApiKey.class

@@ -1,5 +1,3 @@
-package com.example.javarecipefinder.recipeapp;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -63,7 +61,13 @@ public class JsonFormatter {
             while (running) {
                 int tempNum = randInt.nextInt(max);
                 if (usedNum.contains(tempNum) == false) {
-                    chosenRecipesId.add(recipeResults.get(tempNum).get("id"));
+                    try {
+                        chosenRecipesId.add(recipeResults.get(tempNum).get("id"));
+                    }catch (Exception noMoreCredit) {
+                        System.out.println("Error while pulling results from API (Are we out of credit?)");
+
+                    }
+
                     usedNum.add(tempNum);
                     running = false;
                 }

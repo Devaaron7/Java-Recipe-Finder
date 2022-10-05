@@ -1,5 +1,3 @@
-package com.example.javarecipefinder.recipeapp;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -11,8 +9,7 @@ import java.util.Scanner;
 import java.util.Random;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.example.javarecipefinder.recipeapp.Input;
-import com.example.javarecipefinder.recipeapp.JsonFormatter;
+import org.json.simple.parser.ParseException;
 
 public class Main {
 
@@ -22,14 +19,14 @@ public class Main {
         System.out.println("Current amount left for today: " + left);
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException, ParseException {
 
         // Class that takes input from user and returns the JSON response
         String results = Input.term();
 
         // Logic that chooses correct class method to interpret JSON response based on user choice
         ArrayList<HashMap> output;
-        if (Input.choice == 1) {
+        if (Input.userInput == 1) {
             output = JsonFormatter.processTitle(results);
         } else {
             output = JsonFormatter.processIngredients(results);
@@ -37,6 +34,7 @@ public class Main {
 
         // Output of formatted JSON to be 3 random results
         System.out.println(output);
+
 
         // Current additional output - Credits Left, Total Search Results, Ex
         String creditsRequested = Input.searchResponse.headers().firstValue("x-api-quota-request").get();
