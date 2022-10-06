@@ -67,6 +67,8 @@ function sendFormData() {
 
     var input = {"data":document.getElementById('form').value};
 
+    // var input = {"num1":10, "num2": 40};
+
     console.log(JSON.stringify(input));
     fetch("http://localhost:8080/test", {
     method: "POST",
