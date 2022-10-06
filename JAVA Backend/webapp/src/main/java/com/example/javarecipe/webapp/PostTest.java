@@ -1,5 +1,6 @@
-package com.example.javarecipefinder.recipeapp;
+package com.example.javarecipe.webapp;
 //package com.example.javarecipefinder.recipeapp;
+import com.example.javarecipe.webapp.SumPost;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,8 @@ import java.util.Scanner;
 import java.util.Random;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.example.javarecipefinder.recipeapp.Input;
-import com.example.javarecipefinder.recipeapp.JsonFormatter;
+import com.example.javarecipe.webapp.Input;
+import com.example.javarecipe.webapp.JsonFormatter;
 
 
 @CrossOrigin
@@ -33,6 +34,7 @@ public class PostTest {
         System.out.println("Current amount left for today: " + left);
     }
 
+    /*
     @PostMapping(path="/test")
     public ResponseEntity<HttpStatus> read(@RequestBody InputPost file) throws IOException, InterruptedException {
         //System.out.println(file.getData());
@@ -83,11 +85,14 @@ public class PostTest {
 
     }
 
-//    @PostMapping(path="/test")
-//    public int read(@RequestBody InputPost file) {
-//        System.out.println(file.getNum1());
-//        System.out.println(file.getNum2());
-//        //return ResponseEntity.ok(HttpStatus.OK);
-//        return file.getNum1() + file.getNum2();
-//    }
+     */
+
+
+    @PostMapping(path="/test")
+    public int read(@RequestBody SumPost file) {
+        System.out.println(file.getNum1());
+        System.out.println(file.getNum2());
+        //return ResponseEntity.ok(HttpStatus.OK);
+        return file.getNum1() + file.getNum2();
+    }
 }
