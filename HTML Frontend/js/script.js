@@ -14,6 +14,7 @@ var showTags = document.getElementById('ingredients')
 var tagOne = document.getElementById('tagOne')
 var tagTwo = document.getElementById('tagTwo')
 var tagThree = document.getElementById('tagThree')
+var foodTag = document.getElementById('foodTag')
 var tagCounter = 0
 
 
@@ -74,10 +75,14 @@ function sendFormData() {
     method: "POST",
     headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
     body: JSON.stringify(input)
-    }).then(res => {
+    }).then(res => res.json()
+    .then(data =>{
     
-    console.log("Request complete! response:", res);
-    });
+    console.log("Request complete! response:", data);
+    //var resultText = JSON.parse()
+    foodTag.innerText = JSON.stringify(data);
+
+    }));
 }
 
 

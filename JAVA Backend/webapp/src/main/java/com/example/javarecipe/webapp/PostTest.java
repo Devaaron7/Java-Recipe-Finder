@@ -36,28 +36,28 @@ public class PostTest {
 
 
     @PostMapping(path="/test")
-    public ResponseEntity<HttpStatus> read(@RequestBody InputPost file) throws IOException, InterruptedException {
+    public ArrayList<HashMap> read(@RequestBody InputPost file) throws IOException, InterruptedException {
         //System.out.println(file.getData());
 
         // Class that takes input from user and returns the JSON response
         //String results = Input.term();
 
-        String results = file.getData();
+        //String results = file.getData();
 
 
         // Class that takes input from user and returns the JSON response
-        //String results = Input.term();
+        String results = Input.term(file.getData());
 
         // Logic that chooses correct class method to interpret JSON response based on user choice
-        //ArrayList<HashMap> output;
-        //if (Input.userInput == 1) {
-        //    output = JsonFormatter.processTitle(results);
-        //} else {
-        //    output = JsonFormatter.processIngredients(results);
-        //}
+        ArrayList<HashMap> output;
+        if (Input.userInput == 1) {
+            output = JsonFormatter.processTitle(results);
+        } else {
+            output = JsonFormatter.processIngredients(results);
+        }
 
         // Output of formatted JSON to be 3 random results
-        //System.out.println(output);
+        System.out.println(output);
 
 
         // Current additional output - Credits Left, Total Search Results, Ex
@@ -67,7 +67,9 @@ public class PostTest {
         creditStatus(creditsLeft, creditsUsed, creditsRequested);
 
 
-        return ResponseEntity.ok(HttpStatus.OK);
+        //return ResponseEntity.ok(HttpStatus.OK);
+
+        return output;
 
     }
 
