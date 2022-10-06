@@ -13,7 +13,7 @@ public class Input {
     static String thirdItem = null;
     static HttpResponse<String> searchResponse = null;
 
-    public static String term() throws IOException, InterruptedException {
+    public static String term(String testSearch) throws IOException, InterruptedException {
 
         // Using an arraylist for the contains() method to validate user choices for integer prompts
         ArrayList<Integer> validChoiceInt = new ArrayList<Integer>();
@@ -26,7 +26,7 @@ public class Input {
         validChoiceStr.add("n");
 
         // Scanner object that reads input from user throughout program
-        Scanner scan = new Scanner(System.in);
+        //Scanner scan = new Scanner(System.in);
 
         // While loop that resets if an invalid choice is entered by User
         boolean isModeSet = false;
@@ -37,13 +37,14 @@ public class Input {
 
             // Verifies valid choice was made by user. If valid moves to next step. If invalid, User reenters.
             try {
-                userInput = scan.nextInt();
+                //userInput = scan.nextInt();
+                userInput = 1;
 
             // Moves the scanner forward to account for the new-line character after using nextInt()
-                scan.nextLine();
+            //    scan.nextLine();
             } catch (Exception notInt) {
                 System.out.println("Please enter a valid choice...");
-                scan.nextLine();
+            //    scan.nextLine();
                 continue;
             }
             if (validChoiceInt.contains(userInput) != true) {
@@ -64,8 +65,9 @@ public class Input {
         if (userInput == 1) {
 
             // Prompts user to enter string search term
-            System.out.println("Enter a search term:");
-            String searchTerm = scan.nextLine();
+            //System.out.println("Enter a search term:");
+            //String searchTerm = scan.nextLine();
+            String searchTerm = testSearch;
 
             // Creating Search Object that will return JSON String Body
             searchResponse = SearchConnect.searchTitle(searchTerm);
@@ -76,6 +78,7 @@ public class Input {
 
         // Conditional for the ingredient search feature.
         // Uses While loop to ensure valid choices per additional ingredient
+        /*
         if (userInput == 2) {
 
             // Prompts user to enter string search term
@@ -144,6 +147,8 @@ public class Input {
             }
 
         }
+
+         */
 
         return results;
     }

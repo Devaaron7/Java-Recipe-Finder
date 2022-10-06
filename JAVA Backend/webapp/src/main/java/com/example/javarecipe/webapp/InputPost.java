@@ -1,4 +1,4 @@
-package com.example.javarecipefinder.recipeapp;
+package com.example.javarecipe.webapp;
 
 
 public class InputPost {
