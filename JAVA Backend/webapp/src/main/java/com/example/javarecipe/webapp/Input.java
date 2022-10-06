@@ -1,7 +1,10 @@
+package com.example.javarecipe.webapp;
+
 import java.io.IOException;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class Input {
 

@@ -1,3 +1,4 @@
+package com.example.javarecipe.webapp;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
