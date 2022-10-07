@@ -2,6 +2,7 @@ var counter = 0
 var restore = document.getElementById('img_container')
 var saved = restore.innerHTML
 var img1 = document.getElementById('image1')
+var link1 = document.getElementById('link1')
 var img2 = document.getElementById('image2')
 var img3 = document.getElementById('image3')
 var titleBtn = document.getElementById('ModeSelectTitle')
@@ -15,6 +16,14 @@ var tagOne = document.getElementById('tagOne')
 var tagTwo = document.getElementById('tagTwo')
 var tagThree = document.getElementById('tagThree')
 var foodTag = document.getElementById('foodTag')
+var dataForSearchResults = []
+
+var dataForSearchResults = [{sourceUrl: 'http://www.afrolems.com/2014/03/08/plantain-pizza/', image: 'https://spoonacular.com/recipeImages/716300-556x370.jpg', id: 716300, title: 'Plantain Pizza'},
+{sourceUrl: 'https://www.foodista.com/recipe/SHKG55X4/pizza-bites-with-pumpkin', image: 'https://spoonacular.com/recipeImages/656329-556x370.jpg', id: 656329, title: 'Pizza bites with pumpkin'}
+,
+{sourceUrl: 'http://www.pinkwhen.com/blt-pizza/', image: 'https://spoonacular.com/recipeImages/680975-556x370.jpg', id: 680975, title
+: 
+"BLT Pizza"}]
 var tagCounter = 0
 
 
@@ -80,10 +89,34 @@ function sendFormData() {
     
     console.log("Request complete! response:", data);
     //var resultText = JSON.parse()
-    foodTag.innerText = JSON.stringify(data);
+    //foodTag.innerText = JSON.stringify(data[2]["sourceUrl"]);
+
+    //for (i = 0; i < data.length; i++ ){
+    //    dataForSearchResults.push(JSON.stringify(data[i]));
+    //}
+
+    console.log(dataForSearchResults);
+
+
+    setDataforResults()
 
     }));
 }
+
+function setDataforResults() {
+
+    console.log(dataForSearchResults[0]["image"])
+
+    console.log(dataForSearchResults[0]["sourceUrl"])
+
+    console.log(dataForSearchResults)
+
+
+    img1.src = dataForSearchResults[0]["image"];
+    link1.setAttribute("href", dataForSearchResults[0]["sourceUrl"])
+}
+
+
 
 
 function showTitle() {
