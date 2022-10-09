@@ -3,8 +3,13 @@ var restore = document.getElementById('img_container')
 var saved = restore.innerHTML
 var img1 = document.getElementById('image1')
 var link1 = document.getElementById('link1')
+
 var img2 = document.getElementById('image2')
+var link2 = document.getElementById('link2')
+
 var img3 = document.getElementById('image3')
+var link3 = document.getElementById('link3')
+
 var titleBtn = document.getElementById('ModeSelectTitle')
 var searchBtn = document.getElementById('btn')
 var searchTerm = document.getElementById('form')
@@ -18,12 +23,12 @@ var tagThree = document.getElementById('tagThree')
 var foodTag = document.getElementById('foodTag')
 var dataForSearchResults = []
 
-var dataForSearchResults = [{sourceUrl: 'http://www.afrolems.com/2014/03/08/plantain-pizza/', image: 'https://spoonacular.com/recipeImages/716300-556x370.jpg', id: 716300, title: 'Plantain Pizza'},
-{sourceUrl: 'https://www.foodista.com/recipe/SHKG55X4/pizza-bites-with-pumpkin', image: 'https://spoonacular.com/recipeImages/656329-556x370.jpg', id: 656329, title: 'Pizza bites with pumpkin'}
-,
-{sourceUrl: 'http://www.pinkwhen.com/blt-pizza/', image: 'https://spoonacular.com/recipeImages/680975-556x370.jpg', id: 680975, title
-: 
-"BLT Pizza"}]
+// var dataForSearchResults = [{sourceUrl: 'http://www.afrolems.com/2014/03/08/plantain-pizza/', image: 'https://spoonacular.com/recipeImages/716300-556x370.jpg', id: 716300, title: 'Plantain Pizza'},
+// {sourceUrl: 'https://www.foodista.com/recipe/SHKG55X4/pizza-bites-with-pumpkin', image: 'https://spoonacular.com/recipeImages/656329-556x370.jpg', id: 656329, title: 'Pizza bites with pumpkin'}
+// ,
+// {sourceUrl: 'http://www.pinkwhen.com/blt-pizza/', image: 'https://spoonacular.com/recipeImages/680975-556x370.jpg', id: 680975, title
+// : 
+// "BLT Pizza"}]
 var tagCounter = 0
 
 
@@ -42,9 +47,9 @@ function search() {
         var restore = document.getElementById('img_container')
         var saved = restore.innerHTML
     } else {
-        img1.src = "./image_1.jpg";
-        img2.src = "./image_2.jpg";
-        img3.src = "./image_3.jpg";
+        //img1.src = "./image_1.jpg";
+        //img2.src = "./image_2.jpg";
+        //img3.src = "./image_3.jpg";
         var restore = document.getElementById('img_container')
         var saved = restore.innerHTML
     }
@@ -88,12 +93,14 @@ function sendFormData() {
     .then(data =>{
     
     console.log("Request complete! response:", data);
+
+    //dataForSearchResults.push(data);
     //var resultText = JSON.parse()
     //foodTag.innerText = JSON.stringify(data[2]["sourceUrl"]);
 
-    //for (i = 0; i < data.length; i++ ){
-    //    dataForSearchResults.push(JSON.stringify(data[i]));
-    //}
+    for (i = 0; i < data.length; i++ ){
+       dataForSearchResults.push(data[i]);
+    }
 
     console.log(dataForSearchResults);
 
@@ -105,15 +112,23 @@ function sendFormData() {
 
 function setDataforResults() {
 
-    console.log(dataForSearchResults[0]["image"])
+    // console.log(dataForSearchResults[0]["image"])
 
-    console.log(dataForSearchResults[0]["sourceUrl"])
+    // console.log(dataForSearchResults[0]["sourceUrl"])
 
-    console.log(dataForSearchResults)
+    // console.log(dataForSearchResults)
 
 
     img1.src = dataForSearchResults[0]["image"];
     link1.setAttribute("href", dataForSearchResults[0]["sourceUrl"])
+
+    img2.src = dataForSearchResults[1]["image"];
+    link2.setAttribute("href", dataForSearchResults[1]["sourceUrl"])
+
+    img3.src = dataForSearchResults[2]["image"];
+    link3.setAttribute("href", dataForSearchResults[2]["sourceUrl"])
+
+
 }
 
 
