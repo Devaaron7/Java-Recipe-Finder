@@ -73,14 +73,11 @@ public class PostTest {
 
     }
 
-    /*
-    @PostMapping(path="/test")
-    public int read(@RequestBody SumPost file) {
-        System.out.println(file.getNum1());
-        System.out.println(file.getNum2());
-        //return ResponseEntity.ok(HttpStatus.OK);
-        return file.getNum1() + file.getNum2();
+
+    @GetMapping(path="/credit")
+    public String credit() {
+        return Input.searchResponse.headers().firstValue("X-API-Quota-Left").get();
     }
 
-     */
+
 }

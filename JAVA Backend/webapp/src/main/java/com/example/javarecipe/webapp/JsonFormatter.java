@@ -165,6 +165,11 @@ public class JsonFormatter {
 
         }
 
+        // Adding Api Calls left in application as the last item in the JSON array to be displayed on Website
+//        int lastIndex = chosenFoodList.size() - 1;
+//
+//        chosenFoodList.get(lastIndex).put("creditsLeft", Input.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+
         return chosenFoodList;
     }
 
