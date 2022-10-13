@@ -26,8 +26,6 @@ import com.example.javarecipe.webapp.JsonFormatter;
 @RestController
 public class PostTest {
 
-    //static HashMap<String, String> user = new HashMap<>();
-
     public static void creditStatus(String left, String used, String requested) {
         System.out.println("Current credit requested by call: " + requested);
         System.out.println("Current amount used today: " + used);
@@ -37,13 +35,6 @@ public class PostTest {
 
     @PostMapping(path="/test")
     public ArrayList<HashMap> read(@RequestBody InputPost file) throws IOException, InterruptedException {
-        //System.out.println(file.getData());
-
-        // Class that takes input from user and returns the JSON response
-        //String results = Input.term();
-
-        //String results = file.getData();
-
 
         // Class that takes input from user and returns the JSON response
         String results = Input.term(file.getData());
@@ -59,21 +50,18 @@ public class PostTest {
         // Output of formatted JSON to be 3 random results
         System.out.println(output);
 
-
         // Current additional output - Credits Left, Total Search Results, Ex
         String creditsRequested = Input.searchResponse.headers().firstValue("x-api-quota-request").get();
         String creditsLeft = Input.searchResponse.headers().firstValue("X-API-Quota-Left").get();
         String creditsUsed = Input.searchResponse.headers().firstValue("x-api-quota-used").get();
         creditStatus(creditsLeft, creditsUsed, creditsRequested);
 
-
-        //return ResponseEntity.ok(HttpStatus.OK);
-
         return output;
 
     }
 
 
+    // Sends remaining credits to the front end as a String. Credits reset 8PM EST ( 12AM UTC)
     @GetMapping(path="/credit")
     public String credit() {
         return Input.searchResponse.headers().firstValue("X-API-Quota-Left").get();
