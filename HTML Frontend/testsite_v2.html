@@ -37,7 +37,7 @@
         <input type="image" id="add"  type="search"  onclick=addTag() height="20px" src="./assets/plus.png" style="display:none" />
         <input type="image" id="clear"  type="search"  onclick=clearTags() height="20px" src="./assets/minus.png" style="display:none" />
         <input id="form" type="text" oninput=showIconTitle()>
-        <input type="image" id="btn"  type="search"  onclick=search() height="35px" src="./assets/search.png" style="display:none" />
+        <input type="image" id="btn"  type="search"  onclick=showLoader() height="35px" src="./assets/search.png" style="display:none" />
 
         
     </div>
@@ -51,19 +51,22 @@
     
     <br>
 
-    <div class="tags" id="foodList" style="display:flex">
+    <!-- <div class="tags" id="foodList" style="display:flex">
         <p>Data Returned From Spring:</p>
         <br>
         <p id="foodTag"></p>
-    </div>
+    </div> -->
     
     <br>
 
-
-
+    <center>
+    <div class="loader" id="loader" style="display:none"></div></center>
+    
 
 
     <div class="images" id="img_container" style="display:none">
+
+        
 
         <a href="#" id="link1"><img src="./image_1.jpg" alt="#" id="image1" height="200" width="300" ></a>
         
@@ -75,14 +78,14 @@
     </div>
 
 
-    <div class="recipeText" id="text_container" style="display:flex">
+    <!-- <div class="recipeText" id="text_container" style="display:flex">
 
         
         <p>Test</p>
 
         
 
-    </div>
+    </div> -->
     
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="./js/script.js"></script>

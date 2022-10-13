@@ -1,5 +1,6 @@
 var counter = 0
 var restore = document.getElementById('img_container')
+var loader = document.getElementById('loader')
 var saved = restore.innerHTML
 var img1 = document.getElementById('image1')
 var link1 = document.getElementById('link1')
@@ -21,6 +22,7 @@ var tagOne = document.getElementById('tagOne')
 var tagTwo = document.getElementById('tagTwo')
 var tagThree = document.getElementById('tagThree')
 var foodTag = document.getElementById('foodTag')
+var credit = document.getElementById('api')
 var dataForSearchResults = []
 
 // var dataForSearchResults = [{sourceUrl: 'http://www.afrolems.com/2014/03/08/plantain-pizza/', image: 'https://spoonacular.com/recipeImages/716300-556x370.jpg', id: 716300, title: 'Plantain Pizza'},
@@ -38,32 +40,52 @@ var tagCounter = 0
 
 function search() {
 
-    api()
-    sendFormData()
-    if (counter % 2 == 0) {
-        img1.src = "./image_4.jpg";
-        img2.src = "./image_5.jpg";
-        img3.src = "./image_6.jpg";
-        var restore = document.getElementById('img_container')
-        var saved = restore.innerHTML
-    } else {
-        //img1.src = "./image_1.jpg";
-        //img2.src = "./image_2.jpg";
-        //img3.src = "./image_3.jpg";
-        var restore = document.getElementById('img_container')
-        var saved = restore.innerHTML
-    }
+    //api()
+    
+    // if (counter % 2 == 0) {
+    //     // img1.src = "./image_4.jpg";
+    //     // img2.src = "./image_5.jpg";
+    //     // img3.src = "./image_6.jpg";
+    //     var restore = document.getElementById('img_container')
+    //     var saved = restore.innerHTML
+    // } else {
+    //     //img1.src = "./image_1.jpg";
+    //     //img2.src = "./image_2.jpg";
+    //     //img3.src = "./image_3.jpg";
+    //     var restore = document.getElementById('img_container')
+    //     var saved = restore.innerHTML
+    // }
 
-    if (counter > 0) {
+    // if (counter > 0) {
         
-        restore.innerHTML = "";
-        restore.innerHTML = saved;
+    //     restore.innerHTML = "";
+    //     restore.innerHTML = saved;
         
-    }
+    // }
 
     document.getElementById('img_container').style.display='flex';
     counter++
 }
+
+
+function showLoader() {
+
+    if (counter > 0) {
+        
+        document.getElementById('img_container').style.display='none';
+        dataForSearchResults.length = 0;
+        
+    }
+
+    document.getElementById('loader').style.display='flex';
+    sendFormData()
+}
+
+function hideLoader() {
+    document.getElementById('loader').style.display='none';
+    search()
+}
+
 
 
 
@@ -82,8 +104,6 @@ function sendFormData() {
 
     var input = {"data":document.getElementById('form').value};
 
-    // var input = {"num1":10, "num2": 40};
-
     console.log(JSON.stringify(input));
     fetch("http://localhost:8080/test", {
     method: "POST",
@@ -94,21 +114,50 @@ function sendFormData() {
     
     console.log("Request complete! response:", data);
 
-    //dataForSearchResults.push(data);
-    //var resultText = JSON.parse()
-    //foodTag.innerText = JSON.stringify(data[2]["sourceUrl"]);
-
     for (i = 0; i < data.length; i++ ){
        dataForSearchResults.push(data[i]);
     }
 
     console.log(dataForSearchResults);
 
-
+    getCredit()
     setDataforResults()
 
     }));
 }
+
+
+function getCredit() {
+
+    // var input = {"data":document.getElementById('form').value};
+
+    //console.log(JSON.stringify(input));
+    fetch("http://localhost:8080/credit", {
+    method: "GET",
+    headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
+    //body: JSON.stringify(input)
+    }).then(res => res.text())
+    .then((text => {
+    
+    console.log("Get Request complete! response:", text);
+
+    credit.innerHTML = text;
+
+    // for (i = 0; i < data.length; i++ ){
+    //    dataForSearchResults.push(data[i]);
+    // }
+
+    // console.log(dataForSearchResults);
+
+    // setDataforResults()
+
+    }));
+}
+
+
+
+
+
 
 function setDataforResults() {
 
@@ -127,6 +176,8 @@ function setDataforResults() {
 
     img3.src = dataForSearchResults[2]["image"];
     link3.setAttribute("href", dataForSearchResults[2]["sourceUrl"])
+
+    hideLoader()
 
 
 }
