@@ -24,81 +24,29 @@ var tagThree = document.getElementById('tagThree')
 var foodTag = document.getElementById('foodTag')
 var credit = document.getElementById('api')
 var dataForSearchResults = []
-
-// var dataForSearchResults = [{sourceUrl: 'http://www.afrolems.com/2014/03/08/plantain-pizza/', image: 'https://spoonacular.com/recipeImages/716300-556x370.jpg', id: 716300, title: 'Plantain Pizza'},
-// {sourceUrl: 'https://www.foodista.com/recipe/SHKG55X4/pizza-bites-with-pumpkin', image: 'https://spoonacular.com/recipeImages/656329-556x370.jpg', id: 656329, title: 'Pizza bites with pumpkin'}
-// ,
-// {sourceUrl: 'http://www.pinkwhen.com/blt-pizza/', image: 'https://spoonacular.com/recipeImages/680975-556x370.jpg', id: 680975, title
-// : 
-// "BLT Pizza"}]
 var tagCounter = 0
+var tagDict = {"tag1":"", "tag2":"", "tag3":""}
 
 
+//Testing Button Functions
 
 
-
-
-function search() {
-
-    //api()
-    
-    // if (counter % 2 == 0) {
-    //     // img1.src = "./image_4.jpg";
-    //     // img2.src = "./image_5.jpg";
-    //     // img3.src = "./image_6.jpg";
-    //     var restore = document.getElementById('img_container')
-    //     var saved = restore.innerHTML
-    // } else {
-    //     //img1.src = "./image_1.jpg";
-    //     //img2.src = "./image_2.jpg";
-    //     //img3.src = "./image_3.jpg";
-    //     var restore = document.getElementById('img_container')
-    //     var saved = restore.innerHTML
-    // }
-
-    // if (counter > 0) {
-        
-    //     restore.innerHTML = "";
-    //     restore.innerHTML = saved;
-        
-    // }
-
-    document.getElementById('img_container').style.display='flex';
-    counter++
+function testDict() {
+    console.log(tagDict);
 }
 
+// function api() {
 
-function showLoader() {
-
-    if (counter > 0) {
-        
-        document.getElementById('img_container').style.display='none';
-        dataForSearchResults.length = 0;
-        
-    }
-
-    document.getElementById('loader').style.display='flex';
-    sendFormData()
-}
-
-function hideLoader() {
-    document.getElementById('loader').style.display='none';
-    search()
-}
+//     /// Kyle Continue work here. We need the website to change into "nightmode" is the counter displays 0
+//     var apiCounter = document.getElementById('api').innerText = Math.floor(Math.random() * 5);
+//     var errorText = document.getElementById('error').innerText
+//     if (apiCounter == 0) { 
+//         errorText = "OUT OF CREDIT"
+//     }
+// }
 
 
-
-
-function api() {
-
-    /// Kyle Continue work here. We need the website to change into "nightmode" is the counter displays 0
-    var apiCounter = document.getElementById('api').innerText = Math.floor(Math.random() * 5);
-    var errorText = document.getElementById('error').innerText
-    if (apiCounter == 0) { 
-        errorText = "OUT OF CREDIT"
-    }
-}
-
+// Connecting to Backend functions
 
 function sendFormData() {
 
@@ -126,47 +74,7 @@ function sendFormData() {
     }));
 }
 
-
-function getCredit() {
-
-    // var input = {"data":document.getElementById('form').value};
-
-    //console.log(JSON.stringify(input));
-    fetch("http://localhost:8080/credit", {
-    method: "GET",
-    headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
-    //body: JSON.stringify(input)
-    }).then(res => res.text())
-    .then((text => {
-    
-    console.log("Get Request complete! response:", text);
-
-    credit.innerHTML = text;
-
-    // for (i = 0; i < data.length; i++ ){
-    //    dataForSearchResults.push(data[i]);
-    // }
-
-    // console.log(dataForSearchResults);
-
-    // setDataforResults()
-
-    }));
-}
-
-
-
-
-
-
 function setDataforResults() {
-
-    // console.log(dataForSearchResults[0]["image"])
-
-    // console.log(dataForSearchResults[0]["sourceUrl"])
-
-    // console.log(dataForSearchResults)
-
 
     img1.src = dataForSearchResults[0]["image"];
     link1.setAttribute("href", dataForSearchResults[0]["sourceUrl"])
@@ -179,11 +87,49 @@ function setDataforResults() {
 
     hideLoader()
 
+}
 
+function getCredit() {
+
+    fetch("http://localhost:8080/credit", {
+    method: "GET",
+    headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
+    }).then(res => res.json()
+    .then(data =>{
+    
+    console.log("Get Request complete! response:", data["credits"]);
+
+    credit.innerHTML = data["credits"];
+
+    }));
 }
 
 
+// Search related functions
 
+function search() {
+
+    document.getElementById('img_container').style.display='flex';
+    counter++
+}
+
+function showLoader() {
+
+    if (counter > 0) {
+        
+        document.getElementById('img_container').style.display='none';
+        dataForSearchResults.length = 0;
+        
+    }
+
+    document.getElementById('loader').style.display='flex';
+    sendFormData()
+}
+
+function hideLoader() {
+    document.getElementById('loader').style.display='none';
+    search()
+}
 
 function showTitle() {
 
@@ -205,14 +151,37 @@ function showIngredient() {
     
 }
 
+
+function addTag() {
+    
+    if (tagCounter == 0) {
+        tagOne.innerText = searchTerm.value;
+        tagDict["tag1"] = searchTerm.value;
+        searchTerm.value = ""
+        tagCounter += 1
+    } else if (tagCounter == 1) {
+        tagTwo.innerText = searchTerm.value;
+        tagDict["tag2"] = searchTerm.value;
+        searchTerm.value = ""
+        tagCounter += 1 
+    } else if (tagCounter == 2) {
+        tagThree.innerText = searchTerm.value;
+        tagDict["tag3"] = searchTerm.value;
+        searchTerm.value = ""
+        searchTerm.disabled = true;
+        tagCounter += 1 
+    }
+
+
+}
+
 function clearTags() {
 
-    
     tagCounter = 0;
     tagOne.innerText = "";
     tagTwo.innerText = "";
     tagThree.innerText = "";
-    
+    searchTerm.disabled = false;
     
 }
 
@@ -222,20 +191,4 @@ function showIconTitle() {
     } else {
         searchBtn.style.display = "flex";
     }
-}
-
-function addTag() {
-    
-    if (tagCounter == 0) {
-        tagOne.innerText = searchTerm.value;
-        tagCounter += 1
-    } else if (tagCounter == 1) {
-        tagTwo.innerText = searchTerm.value;
-        tagCounter += 1 
-    } else if (tagCounter == 2) {
-        tagThree.innerText = searchTerm.value;
-        tagCounter += 1 
-    }
-
-
 }
