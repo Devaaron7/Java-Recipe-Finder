@@ -33,8 +33,13 @@ public class PostTest {
     }
 
     public double getCreditsLeft() throws IOException, InterruptedException {
-        Input.term("null");
-        return Double.parseDouble(Input.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+        try{
+            Input.term("null");
+            return Double.parseDouble(Input.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+        }catch (Exception e) {
+            System.out.println("Error with collecting credit counter. We may be out of credit");
+        }
+
     }
 
 
