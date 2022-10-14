@@ -33,13 +33,23 @@ public class PostTest {
     }
 
     public double getCreditsLeft() throws IOException, InterruptedException {
-        try{
-            Input.term("null");
-            return Double.parseDouble(Input.searchResponse.headers().firstValue("X-API-Quota-Left").get());
-        }catch (Exception e) {
-            System.out.println("Error with collecting credit counter. We may be out of credit");
-        }
+//        try{
+//
+//        }catch (Exception e) {
+//            System.out.println("Error with collecting credit counter. We may be out of credit");
+//        }
+        Input.term("null");
+        return Double.parseDouble(Input.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+    }
 
+    // Sends remaining credits to the front end as a String. Credits reset 8PM EST ( 12AM UTC)
+    @GetMapping(path="/credit")
+    public HashMap<String, Double> credit() {
+        HashMap<String, Double> remainingCredits = new HashMap<>();
+        double value = Double.parseDouble(Input.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+        remainingCredits.put("credits", value);
+        //return Double.parseDouble(Input.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+        return remainingCredits;
     }
 
 
@@ -71,11 +81,7 @@ public class PostTest {
     }
 
 
-    // Sends remaining credits to the front end as a String. Credits reset 8PM EST ( 12AM UTC)
-    @GetMapping(path="/credit")
-    public String credit() {
-        return Input.searchResponse.headers().firstValue("X-API-Quota-Left").get();
-    }
+
 
 
 }
