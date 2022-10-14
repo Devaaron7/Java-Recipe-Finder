@@ -33,7 +33,7 @@ public class Input {
         while (!isModeSet) {
 
             // Prompts user to choose search mode
-            System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
+            //System.out.println("Enter 1 to search by title or 2 to search by ingredient:");
 
             // Verifies valid choice was made by user. If valid moves to next step. If invalid, User reenters.
             try {

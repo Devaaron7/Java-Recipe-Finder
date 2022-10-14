@@ -32,6 +32,11 @@ public class PostTest {
         System.out.println("Current amount left for today: " + left);
     }
 
+    public double getCreditsLeft() throws IOException, InterruptedException {
+        Input.term("null");
+        return Double.parseDouble(Input.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+    }
+
 
     @PostMapping(path="/test")
     public ArrayList<HashMap> read(@RequestBody InputPost file) throws IOException, InterruptedException {
