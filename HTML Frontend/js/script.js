@@ -26,6 +26,8 @@ var credit = document.getElementById('api')
 var dataForSearchResults = []
 var tagCounter = 0
 var tagDict = {"tag1":"", "tag2":"", "tag3":""}
+var modeTitle = document.getElementById('ModeSelectTitle')
+var modeIngredient = document.getElementById('ModeSelectIngredient')
 
 
 //Testing Button Functions
@@ -48,7 +50,7 @@ function testDict() {
 
 // Connecting to Backend functions
 
-function sendFormData() {
+function sendFormDataTitle() {
 
     var input = {"data":document.getElementById('form').value};
 
@@ -57,6 +59,32 @@ function sendFormData() {
     method: "POST",
     headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
     body: JSON.stringify(input)
+    }).then(res => res.json()
+    .then(data =>{
+    
+    console.log("Request complete! response:", data);
+
+    for (i = 0; i < data.length; i++ ){
+       dataForSearchResults.push(data[i]);
+    }
+
+    console.log(dataForSearchResults);
+
+    getCredit()
+    setDataforResults()
+
+    }));
+}
+
+function sendFormDataIngredient() {
+
+    //var input = {"data":document.getElementById('form').value};
+
+    console.log(JSON.stringify(tagDict));
+    fetch("http://localhost:8080/ingredient", {
+    method: "POST",
+    headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
+    body: JSON.stringify(tagDict)
     }).then(res => res.json()
     .then(data =>{
     
@@ -123,7 +151,19 @@ function showLoader() {
     }
 
     document.getElementById('loader').style.display='flex';
-    sendFormData()
+
+    //console.log(modeIngredient.checked)
+
+    //sendFormDataTitle()
+
+    if (modeTitle.checked) {
+        sendFormDataTitle()
+    }else{
+        sendFormDataIngredient()
+    }
+
+    
+    
 }
 
 function hideLoader() {
