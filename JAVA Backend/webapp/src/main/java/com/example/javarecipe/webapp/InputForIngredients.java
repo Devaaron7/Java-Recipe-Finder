@@ -3,17 +3,17 @@ package com.example.javarecipe.webapp;
 import java.io.IOException;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.HashMap;
 
 
-public class Input {
+public class InputForIngredients {
 
     static int userInput = 0;
     static String secondItem = null;
     static String thirdItem = null;
     static HttpResponse<String> searchResponse = null;
 
-    public static String term(String testSearch) throws IOException, InterruptedException {
+    public static String term(HashMap<String, String> testSearch) throws IOException, InterruptedException {
 
         // Using an arraylist for the contains() method to validate user choices for integer prompts
         ArrayList<Integer> validChoiceInt = new ArrayList<Integer>();
@@ -38,7 +38,7 @@ public class Input {
             // Verifies valid choice was made by user. If valid moves to next step. If invalid, User reenters.
             try {
                 //userInput = scan.nextInt();
-                userInput = 1;
+                userInput = 2;
 
             // Moves the scanner forward to account for the new-line character after using nextInt()
             //    scan.nextLine();
@@ -62,35 +62,35 @@ public class Input {
 
 
         // Conditional for the title search feature
-        if (userInput == 1) {
-
-            // Prompts user to enter string search term
-            //System.out.println("Enter a search term:");
-            //String searchTerm = scan.nextLine();
-            String searchTerm = testSearch;
-
-            // Creating Search Object that will return JSON String Body
-            searchResponse = SearchConnect.searchTitle(searchTerm);
-
-            // Json String Body from the HTTP response
-            results = searchResponse.body();
-        }
+//        if (userInput == 1) {
+//
+//            // Prompts user to enter string search term
+//            //System.out.println("Enter a search term:");
+//            //String searchTerm = scan.nextLine();
+//            String searchTerm = testSearch;
+//
+//            // Creating Search Object that will return JSON String Body
+//            searchResponse = SearchConnect.searchTitle(searchTerm);
+//
+//            // Json String Body from the HTTP response
+//            results = searchResponse.body();
+//        }
 
         // Conditional for the ingredient search feature.
         // Uses While loop to ensure valid choices per additional ingredient
-        /*
+
         if (userInput == 2) {
 
             // Prompts user to enter string search term
             System.out.println("Enter the first ingredient:");
-            String ingredientOne = scan.nextLine();
+            String ingredientOne = testSearch.get("tag1");
 
             boolean addIngredientValid = false;
             while(!addIngredientValid) {
 
                 System.out.println("Would you like to add another ingredient?");
                 System.out.println("y for Yes, n for No:");
-                secondItem = scan.nextLine().toLowerCase();
+                secondItem = "y";
 
                 if (validChoiceStr.contains(secondItem) != true) {
                     System.out.println("Invalid choice, please try again.");
@@ -109,14 +109,14 @@ public class Input {
 
             } else if (secondItem.equals("y")) {
                 System.out.println("Enter the second ingredient:");
-                String ingredientTwo = scan.nextLine();
+                String ingredientTwo = testSearch.get("tag2");
 
                 addIngredientValid = false;
                 while(!addIngredientValid) {
 
                     System.out.println("Would you like to a final ingredient?");
                     System.out.println("y for Yes, n for No:");
-                    thirdItem = scan.nextLine().toLowerCase();
+                    thirdItem = "y";
 
                     if (validChoiceStr.contains(thirdItem) != true) {
                         System.out.println("Invalid choice, please try again.");
@@ -135,7 +135,7 @@ public class Input {
                 } else if (thirdItem.equals("y")) {
 
                     System.out.println("Enter the last ingredient:");
-                    String ingredientThree = scan.nextLine();
+                    String ingredientThree = testSearch.get("tag3");
 
 
                     searchResponse = SearchConnect.searchIngredients(ingredientOne, ingredientTwo, ingredientThree);
@@ -148,7 +148,7 @@ public class Input {
 
         }
 
-         */
+
 
         return results;
     }

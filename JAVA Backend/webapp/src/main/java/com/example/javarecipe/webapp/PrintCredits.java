@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class PrintCredits {
     public static void main(String[] args) throws IOException, InterruptedException {
-        PostTest credits = new PostTest();
+        AllEndpointsForApp credits = new AllEndpointsForApp();
         System.out.println(credits.getCreditsLeft());
     }
 }
