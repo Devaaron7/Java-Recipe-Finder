@@ -1,5 +1,4 @@
 package com.example.javarecipe.webapp;
-//package com.example.javarecipefinder.recipeapp;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,16 +17,12 @@ public class AllEndpointsForApp {
     }
 
     public double getCreditsLeft() throws IOException, InterruptedException {
-
         try{
             InputForRecipeTitle.term("null");
             return Double.parseDouble(InputForRecipeTitle.searchResponse.headers().firstValue("X-API-Quota-Left").get());
         }catch (Exception e) {
-
             throw new NullPointerException("We're out of credits");
         }
-
-
     }
 
     // Sends remaining credits to the front end as a String. Credits reset 8PM EST ( 12AM UTC)
@@ -36,10 +31,8 @@ public class AllEndpointsForApp {
         HashMap<String, Double> remainingCredits = new HashMap<>();
         double value = Double.parseDouble(InputForIngredients.searchResponse.headers().firstValue("X-API-Quota-Left").get());
         remainingCredits.put("credits", value);
-        //return Double.parseDouble(Input.searchResponse.headers().firstValue("X-API-Quota-Left").get());
         return remainingCredits;
     }
-
 
     @PostMapping(path="/test")
     public ArrayList<HashMap> read(@RequestBody titleSearchData file) throws IOException, InterruptedException {
