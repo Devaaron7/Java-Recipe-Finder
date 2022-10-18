@@ -35,7 +35,7 @@ public class AllEndpointsForApp {
     }
 
     @PostMapping(path="/test")
-    public ArrayList<HashMap> read(@RequestBody titleSearchData file) throws IOException, InterruptedException {
+    public ArrayList<HashMap> read(@RequestBody TitleSearchData file) throws IOException, InterruptedException {
 
         // Class that takes input from user and returns the JSON response
         String results = InputForRecipeTitle.term(file.getData());

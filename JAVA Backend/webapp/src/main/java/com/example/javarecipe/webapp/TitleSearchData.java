@@ -1,7 +1,7 @@
 package com.example.javarecipe.webapp;
 
 
-public class titleSearchData {
+public class TitleSearchData {
     private String data;
 
     public String getData() {
