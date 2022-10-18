@@ -40,6 +40,8 @@ public class AllEndpointsForApp {
         // Class that takes input from user and returns the JSON response
         String results = InputForRecipeTitle.term(file.getData());
 
+        //System.out.println(file.getData() instanceof String);
+
         // Logic that chooses correct class method to interpret JSON response based on user choice
         ArrayList<HashMap> output;
         if (InputForRecipeTitle.userInput == 1) {
