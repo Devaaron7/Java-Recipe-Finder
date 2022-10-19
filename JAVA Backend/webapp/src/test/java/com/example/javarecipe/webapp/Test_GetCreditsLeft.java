@@ -31,7 +31,7 @@ class Test_GetCreditsLeft {
 
         try{
             credit.getCreditsLeft();
-            System.out.println("We have credits");
+            System.out.println("We have credits: " + credit.getCreditsLeft());
         } catch (Exception e) {
             assertThrows(NullPointerException.class,
                     () -> {

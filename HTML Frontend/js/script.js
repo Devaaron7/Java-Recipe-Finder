@@ -55,7 +55,7 @@ function sendFormDataTitle() {
     var input = {"data":document.getElementById('form').value};
 
     console.log(JSON.stringify(input));
-    fetch("http://localhost:8080/test", {
+    fetch("http://localhost:8080/recipe", {
     method: "POST",
     headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
     body: JSON.stringify(input)

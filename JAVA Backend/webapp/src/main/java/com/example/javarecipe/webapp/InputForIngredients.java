@@ -82,14 +82,14 @@ public class InputForIngredients {
         if (userInput == 2) {
 
             // Prompts user to enter string search term
-            System.out.println("Enter the first ingredient:");
+            //System.out.println("Enter the first ingredient:");
             String ingredientOne = testSearch.get("tag1");
 
             boolean addIngredientValid = false;
             while(!addIngredientValid) {
 
-                System.out.println("Would you like to add another ingredient?");
-                System.out.println("y for Yes, n for No:");
+                //System.out.println("Would you like to add another ingredient?");
+                //System.out.println("y for Yes, n for No:");
                 secondItem = "y";
 
                 if (validChoiceStr.contains(secondItem) != true) {
@@ -108,14 +108,14 @@ public class InputForIngredients {
 
 
             } else if (secondItem.equals("y")) {
-                System.out.println("Enter the second ingredient:");
+                //System.out.println("Enter the second ingredient:");
                 String ingredientTwo = testSearch.get("tag2");
 
                 addIngredientValid = false;
                 while(!addIngredientValid) {
 
-                    System.out.println("Would you like to a final ingredient?");
-                    System.out.println("y for Yes, n for No:");
+                    //System.out.println("Would you like to a final ingredient?");
+                    //System.out.println("y for Yes, n for No:");
                     thirdItem = "y";
 
                     if (validChoiceStr.contains(thirdItem) != true) {
@@ -134,7 +134,7 @@ public class InputForIngredients {
 
                 } else if (thirdItem.equals("y")) {
 
-                    System.out.println("Enter the last ingredient:");
+                    //System.out.println("Enter the last ingredient:");
                     String ingredientThree = testSearch.get("tag3");
 
 

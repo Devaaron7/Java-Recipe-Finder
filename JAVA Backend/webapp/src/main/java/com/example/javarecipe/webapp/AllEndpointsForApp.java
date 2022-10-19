@@ -34,7 +34,7 @@ public class AllEndpointsForApp {
         return remainingCredits;
     }
 
-    @PostMapping(path="/test")
+    @PostMapping(path="/recipe")
     public ArrayList<HashMap> read(@RequestBody TitleSearchData file) throws IOException, InterruptedException {
 
         // Class that takes input from user and returns the JSON response
@@ -78,7 +78,7 @@ public class AllEndpointsForApp {
         }
 
         // Output of formatted JSON to be 3 random results
-        System.out.println(file.getTagList());
+        //System.out.println(file.getTagList());
         System.out.println(output);
 
         // Current additional output - Credits Left, Total Search Results, Ex
