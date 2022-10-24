@@ -31,8 +31,15 @@
         
                 <input type="image" id="add"  type="search"  onclick=addTag() height="20px" src="./assets/plus.png" style="display:none" />
                 <input type="image" id="clear"  type="search"  onclick=clearTags() height="20px" src="./assets/minus.png" style="display:none" />
-                <input id="form" type="text" oninput=showIconTitle()>
-                <input type="image" id="btn"  type="search"  onclick=showLoader() height="35px" src="./assets/search.png" style="display:none" />
+
+                 <div class="search">
+                    <input type="form" class="searchTerm">
+                    <button type="text" oninput=showIconTitle() class="searchButton">
+                    <i class="fa fa-search"></i>
+                   </button>
+                 </div>
+                <!-- <input id="form" type="text" oninput=showIconTitle()> -->
+                <!-- <input type="image" id="btn"  type="search"  onclick=showLoader() height="35px" src="./assets/search.png" style="display:none" /> -->
         
             </div>
 
@@ -48,9 +55,11 @@
 
     <div class="bottomParent">
         <div class="bottomChild">
+
             <div class="loader" id="loader" style="display:none"></div>
 
             <ul class="images" id="img_container" style="display:none">
+
                 <li>
                     <a href="#" id="link1"><img src="./image_1.jpg" alt="#" id="image1" height="200" width="300" ></a>
                 </li>
@@ -65,15 +74,8 @@
             
             </ul>
 
-            <!-- <div class="images" id="img_container" style="display:none">
-
-                <a href="#" id="link1"><img src="./image_1.jpg" alt="#" id="image1" height="200" width="300" ></a>
-                <a href="#" id="link2"><img src="./image_1.jpg" alt="#" id="image2" height="200" width="300" ></a>
-                <a href="#" id="link3"><img src="./image_1.jpg" alt="#" id="image3" height="200" width="300" ></a>
-        
-            </div> -->
-            
         </div>
+
     </div>
     
 
