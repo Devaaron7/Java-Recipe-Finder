@@ -33,17 +33,16 @@ public class SearchConnect {
 
     }
 
-
+// Updated Ingredient API Call  that should be more accurate
     public static HttpResponse<String> searchIngredients(String searchTermOne, String searchTermTwo, String searchTermThree) throws IOException, InterruptedException {
 
 
         // Forming Get Request using the search term provided by user
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create("https://api.spoonacular.com/recipes/findByIngredients?ingredients=" +
+                .uri(URI.create("https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" +
                         searchTermOne + ",+" +
                         searchTermTwo + ",+"+
-                        "ranking=2"+
                         searchTermThree + "&number=100&apiKey=" +
                         ApiKey.getKey("key")))
                 .GET()
@@ -61,7 +60,7 @@ public class SearchConnect {
 
     }
 
-
+// Original Ingredient search logic that was giving fuzzy results ( not including required ingredients)
 //    public static HttpResponse<String> searchIngredients(String searchTermOne, String searchTermTwo, String searchTermThree) throws IOException, InterruptedException {
 //
 //
