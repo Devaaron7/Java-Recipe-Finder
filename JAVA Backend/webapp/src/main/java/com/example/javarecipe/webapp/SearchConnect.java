@@ -40,8 +40,8 @@ public class SearchConnect {
         // Forming Get Request using the search term provided by user
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create("https://api.spoonacular.com/recipes/complexSearch?includeIngredients=" +
-                        searchTermOne + ",+" +
+                .uri(URI.create("https://api.spoonacular.com/recipes/complexSearch?query=" +
+                        searchTermOne + "&includeIngredients=" +
                         searchTermTwo + ",+"+
                         searchTermThree + "&number=100&apiKey=" +
                         ApiKey.getKey("key")))

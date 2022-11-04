@@ -65,8 +65,18 @@ public class JsonFormatter {
                 if (usedNum.contains(tempNum) == false) {
                     try {
                         chosenRecipesId.add(recipeResults.get(tempNum).get("id"));
-                    }catch (Exception noMoreCredit) {
-                        System.out.println("Error while pulling results from API (Are we out of credit?)");
+                    }catch (NullPointerException e) {
+                        for (int x = 0; x < 3; x++) {
+
+
+                            chosenFoodList.get(x).put("id", "");
+                            chosenFoodList.get(x).put("title", "");
+                            chosenFoodList.get(x).put("sourceUrl", "");
+                            chosenFoodList.get(x).put("image", "");
+
+                        }
+
+                        return chosenFoodList;
 
                     }
 
@@ -142,11 +152,29 @@ public class JsonFormatter {
         chosenFoodList.add(foodThree);
 
         // Gets three random food ids from the list of ingredient results
-        for (int i = 0; i < 3; i++) {
 
-            chosenRecipesId.add(api.get("results").get(randInt.nextInt(max)).get("id"));
+        try {
+            for (int i = 0; i < 3; i++) {
+
+                chosenRecipesId.add(api.get("results").get(randInt.nextInt(max)).get("id"));
+
+            }
+
+        } catch (NullPointerException e) {
+            for (int i = 0; i < 3; i++) {
+
+
+                chosenFoodList.get(i).put("id", "");
+                chosenFoodList.get(i).put("title", "");
+                chosenFoodList.get(i).put("sourceUrl", "");
+                chosenFoodList.get(i).put("image", "");
+
+            }
+
+            return chosenFoodList;
 
         }
+
 
         // Loop that takes food ids from the Array chosenRecipesId, and gets the specific recipe information
         // per id, then assigned the key / value pair to the Array of Hashmaps ( chosenFoodList ) so that

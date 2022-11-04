@@ -17,7 +17,7 @@ class Test_IngredientSearch {
 
         IngredientSearchData search = new IngredientSearchData();
 
-        search.setTag1("chicken");
+        search.setTag1("sugar");
         search.setTag2("");
         search.setTag3("");
 
@@ -31,8 +31,8 @@ class Test_IngredientSearch {
 
         IngredientSearchData search = new IngredientSearchData();
 
-        search.setTag1("chicken");
-        search.setTag2("cheese");
+        search.setTag1("sugar");
+        search.setTag2("chocolate");
         search.setTag3("");
 
         assertInstanceOf(ArrayList.class, app.read(search));
@@ -46,9 +46,9 @@ class Test_IngredientSearch {
 
         IngredientSearchData search = new IngredientSearchData();
 
-        search.setTag1("chicken");
-        search.setTag2("cheese");
-        search.setTag3("pasta");
+        search.setTag1("sugar");
+        search.setTag2("chocolate");
+        search.setTag3("egg");
 
         assertInstanceOf(ArrayList.class, app.read(search));
 
