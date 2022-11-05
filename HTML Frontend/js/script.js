@@ -28,6 +28,7 @@ var tagCounter = 0
 var tagDict = {"tag1":"", "tag2":"", "tag3":""}
 var modeTitle = document.getElementById('ModeSelectTitle')
 var modeIngredient = document.getElementById('ModeSelectIngredient')
+var searchError = document.getElementById('noSearchResults')
 
 
 //Testing Button Functions
@@ -104,16 +105,25 @@ function sendFormDataIngredient() {
 
 function setDataforResults() {
 
-    img1.src = dataForSearchResults[0]["image"];
-    link1.setAttribute("href", dataForSearchResults[0]["sourceUrl"])
+    if (dataForSearchResults[0]["sourceUrl"] == "") {
+        searchError.innerHTML = "No Results found. Please try a different search."
+        dataForSearchResults.length = 0;
+        hideLoader()
+    } else {
 
-    img2.src = dataForSearchResults[1]["image"];
-    link2.setAttribute("href", dataForSearchResults[1]["sourceUrl"])
+        img1.src = dataForSearchResults[0]["image"];
+        link1.setAttribute("href", dataForSearchResults[0]["sourceUrl"])
 
-    img3.src = dataForSearchResults[2]["image"];
-    link3.setAttribute("href", dataForSearchResults[2]["sourceUrl"])
+        img2.src = dataForSearchResults[1]["image"];
+        link2.setAttribute("href", dataForSearchResults[1]["sourceUrl"])
+
+        img3.src = dataForSearchResults[2]["image"];
+        link3.setAttribute("href", dataForSearchResults[2]["sourceUrl"])
 
     hideLoader()
+    search()
+    }
+    
 
 }
 
@@ -168,7 +178,7 @@ function showLoader() {
 
 function hideLoader() {
     document.getElementById('loader').style.display='none';
-    search()
+    
 }
 
 function showTitle() {
