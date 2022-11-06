@@ -1,11 +1,20 @@
-html, body { 
-    background-image: url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg);
+html {
     background-color: #00b4cc00;
+    background-image: url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg);
+    background-position: center;
+    /* width: 365px;
+    height: 150px; */
+    /* background-size: cover; */
+} 
+
+
+body { 
+    
+    
 
     /* opacity: 0.2; */
     /* height: 100%; */
-    background-position: center;
-    background-size: cover;
+    
 }
 
 .topParent {
