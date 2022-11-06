@@ -14,78 +14,83 @@
 </head>
 <body>
 
-    <div class="topParent">
-        <div class="topChild">
-            <h1>Welcome to My Website</h1>
-            <p id="api">0</p>
-            <p id="error"></p>
-        </div>
-    </div>
+    <main>
+
     
-    <div class="midParent">
-        <div class="midChild">
-            <input type="radio" id="ModeSelectTitle" name="ModeSelect" value="title" onclick=showTitle();>
-            <label for="html">Title Search</label>
-        
-            <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient" onclick=showIngredient();>
-
-            <label for="html">Ingredient Search</label>
-
-            <div class="button_center" id="buttons" style="display:none">
-        
-                <input type="image" id="add"  type="search"  onclick=addTag() height="20px" src="./assets/plus.png" style="display:none" />
-                <input type="image" id="clear"  type="search"  onclick=clearTags() height="20px" src="./assets/minus.png" style="display:none" />
-
-                 <div class="search">
-                    <input type="form" id="form" class="searchTerm">
-                    <button type="text" oninput=showIconTitle() class="searchButton">
-                    
-                    <i class="fa fa-search" onclick=showLoader() aria-hidden="true"></i>
-                   </button>
-                 </div>
-                <!-- <input id="form" type="text" oninput=showIconTitle()> -->
-                <!-- <input type="image" id="btn"  type="search"  onclick=showLoader() height="35px" src="./assets/search.png" style="display:none" /> -->
-        
+        <div class="topParent">
+            <div class="topChild">
+                <h1>Welcome to My Website</h1>
+                <p id="api">0</p>
+                <!-- <p id="error">hello</p> -->
             </div>
-
-            <div class="tags" id="ingredients" style="display:none">
-                <p id="tagOne">&emsp;</p>
-                <p id="tagTwo">&emsp;</p>
-                <p id="tagThree">&emsp;</p>
-            </div>
-
         </div>
-    </div>
-   
-
-    <div class="bottomParent">
-        <div class="bottomChild">
-
-            <div class="loader" id="loader" style="display:none"></div>
-
-            <ul class="images" id="img_container" style="display:none">
-
-                <li>
-                    <a href="#" id="link1"><img src="./image_1.jpg" alt="#" id="image1" height="200" width="300" ></a>
-                </li>
-
-                <li>
-                    <a href="#" id="link2"><img src="./image_1.jpg" alt="#" id="image2" height="200" width="300" ></a>
-                </li>
-
-                <li>
-                    <a href="#" id="link3"><img src="./image_1.jpg" alt="#" id="image3" height="200" width="300" ></a>
-                </li>
+        
+        <div class="midParent">
+            <div class="midChild">
+                <input type="radio" id="ModeSelectTitle" name="ModeSelect" value="title" onclick=showTitle();>
+                <label for="html">Title Search</label>
             
-            </ul>
+                <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient" onclick=showIngredient();>
 
-            <div class="noResultsError">
-                <h2 id="noSearchResults"></h2>
+                <label for="html">Ingredient Search</label>
+
+                <div class="button_center" id="buttons" style="display:none">
+            
+                    <input type="image" id="add"  type="search"  onclick=addTag() height="20px" src="./assets/plus.png" style="display:none" />
+                    <input type="image" id="clear"  type="search"  onclick=clearTags() height="20px" src="./assets/minus.png" style="display:none" />
+
+                    <div class="search">
+                        <input type="form" id="form" class="searchTerm">
+                        <button type="text" oninput=showIconTitle() class="searchButton">
+                        
+                        <i class="fa fa-search" onclick=showLoader() aria-hidden="true"></i>
+                    </button>
+                    </div>
+                    <!-- <input id="form" type="text" oninput=showIconTitle()> -->
+                    <!-- <input type="image" id="btn"  type="search"  onclick=showLoader() height="35px" src="./assets/search.png" style="display:none" /> -->
+            
+                </div>
+
+                <div class="tags" id="ingredients" style="display:none">
+                    <p id="tagOne">&emsp;</p>
+                    <p id="tagTwo">&emsp;</p>
+                    <p id="tagThree">&emsp;</p>
+                </div>
+
+            </div>
+        </div>
+    
+
+        <div class="bottomParent">
+            <div class="bottomChild">
+
+                <div class="loader" id="loader" style="display:none"></div>
+
+                <ul class="images" id="img_container" style="display:none">
+
+                    <li>
+                        <a href="#" id="link1"><img src="./image_1.jpg" alt="#" id="image1" height="200" width="300" ></a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="link2"><img src="./image_1.jpg" alt="#" id="image2" height="200" width="300" ></a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="link3"><img src="./image_1.jpg" alt="#" id="image3" height="200" width="300" ></a>
+                    </li>
+                
+                </ul>
+
+                <div class="noResultsError">
+                    <h2 id="noSearchResults"></h2>
+                </div>
+
             </div>
 
         </div>
 
-    </div>
+    </main> 
     
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

@@ -1,5 +1,10 @@
-html,
-body { height: 100%;
+body { 
+    background-image: url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg);
+
+    /* opacity: 0.2; */
+    height: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 .topParent {
@@ -8,17 +13,28 @@ body { height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    
 }
 
 .topChild {
     /* background-color: #FFFF00; */
-    width: 500px;
-    height: 100px;
+    width: 365px;
+    height: 150px;
+    /* display: flex; */
+    /* margin: 10px; */
     text-align: center;
 }
 
+.topChild p {
+    text-align: center;
+    position: relative;
+    top: -20px;
+    /* margin-bottom: 10px; */
+}
+
 .midParent {
-    height: 100px;
+    height: 50px;
     /* background: #CCCCCC; */
     display: flex;
     align-items: center;
@@ -28,7 +44,9 @@ body { height: 100%;
 .midChild {
     /* background-color: #0084ff; */
     width: 500px;
-    height: 100px;
+    /* height: 100px; */
+    border: 10px;
+    
     text-align: center;
 }
 
@@ -90,14 +108,17 @@ body { height: 100%;
 .images {
 
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     justify-content: center;
-    gap: 10px;
+    padding: 20px;
+    
+    /* gap: 10px; */
     
 }
 
 ul {
     list-style-type: none;
+    
 }
 
 
@@ -106,6 +127,11 @@ ul {
     position: relative;
     animation: mymove1 .5s 1;
     animation-timing-function: linear;
+    background-color: black;
+    padding: 2px;
+    margin: 10px;
+    object-fit: fill;
+
     
 }
 
@@ -114,6 +140,10 @@ ul {
     position: relative;
     animation: mymove2 .6s 1;
     animation-timing-function: linear;
+    background-color: black;
+    padding: 2px;
+    margin: 10px;
+    object-fit: fill;
     
 }
 
@@ -122,6 +152,10 @@ ul {
     position: relative;
     animation: mymove3 .7s 1;
     animation-timing-function: linear;
+    background-color: black;
+    padding: 2px;
+    margin: 10px;
+    object-fit: fill;
     
 }
 
