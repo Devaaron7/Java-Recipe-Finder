@@ -68,6 +68,8 @@ public class InputForRecipeTitle {
             //String searchTerm = scan.nextLine();
             String searchTerm = testSearch;
 
+            System.out.println(searchTerm);
+
             // Creating Search Object that will return JSON String Body
             searchResponse = SearchConnect.searchTitle(searchTerm);
 

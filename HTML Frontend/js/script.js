@@ -56,7 +56,11 @@ function testDict() {
 
 function sendFormDataTitle() {
 
-    var input = {"data":document.getElementById('form').value};
+    var stringToFormat = document.getElementById('form').value
+
+    var formattedString = stringToFormat.replaceAll(" ", "&")
+
+    var input = {"data":formattedString};
 
     console.log(JSON.stringify(input));
     fetch("http://localhost:8080/recipe", {
@@ -165,6 +169,8 @@ function showLoader() {
         dataForSearchResults.length = 0;
         
     }
+
+    searchError.innerHTML = "";
 
     document.getElementById('loader').style.display='flex';
 

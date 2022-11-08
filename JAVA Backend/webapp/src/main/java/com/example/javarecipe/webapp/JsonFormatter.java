@@ -55,7 +55,7 @@ public class JsonFormatter {
 
         // Gets three random food ids from the list of search results
         ArrayList <Integer> usedNum = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 20; i++) {
 
             // Logic to ensure number choice isn't reused by checking array for past choices
             boolean running = true;
@@ -66,7 +66,7 @@ public class JsonFormatter {
                     try {
                         chosenRecipesId.add(recipeResults.get(tempNum).get("id"));
                     }catch (NullPointerException e) {
-                        for (int x = 0; x < 3; x++) {
+                        for (int x = 0; x < 20; x++) {
 
 
                             chosenFoodList.get(x).put("id", "");
@@ -96,7 +96,7 @@ public class JsonFormatter {
         // we have 1 Array list, with 3 Hashmaps, that are the title, id, image & link for the specific
         // randomly chosen recipe. We'll use this data structure to pull the info we need for the Webpage using the
         // ".get" method on the Array Index for each Recipe.
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 20; i++) {
 
             HttpResponse<String> recipeResponse = SearchConnect.recipeInfo(chosenRecipesId.get(i).asText());
             JsonNode recipeJsonString = objectMapper.readTree(recipeResponse.body());
