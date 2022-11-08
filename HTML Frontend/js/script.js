@@ -232,12 +232,17 @@ function addTag() {
 }
 
 function clearTags() {
+    
 
     tagCounter = 0;
     tagOne.innerText = "";
     tagTwo.innerText = "";
     tagThree.innerText = "";
+    tagDict["tag1"] = "";
+    tagDict["tag2"] = "";
+    tagDict["tag3"] = "";
     searchTerm.disabled = false;
+    
     
 }
 
