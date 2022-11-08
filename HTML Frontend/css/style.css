@@ -1,30 +1,48 @@
 html {
-    background-color: #00b4cc00;
-    background-image: url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg);
-    background-position: center;
+    /* background-image: url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg);
+    background-position: center; */
+    background:
+    radial-gradient(#000 0.5px,transparent 0.5px) 0   0   /3px 3px,
+    radial-gradient(#000 0.5px,transparent 0.5px) 1px 1px /3px 3px,
+    radial-gradient(#000 0.5px,transparent 0.5px) 2px 2px /3px 3px,
+    url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg) center/cover;
+
+    font-family: 'Open Sans', sans-serif;
+    
     /* width: 365px;
     height: 150px; */
     /* background-size: cover; */
-} 
 
+  
+   
+  }
 
-body { 
-    
+body {
+
+    background-color: rgb(28 28 28 / 63%);
+    width: auto;
+    height: 900px;
+   
+    /* justify-content: center;
+    align-items: center; */
     
 
-    /* opacity: 0.2; */
-    /* height: 100%; */
-    
 }
+
 
 .topParent {
     height: 100px;
-    background: #cccccc00;
+    
     display: flex;
     align-items: center;
     justify-content: center;
     
     
+}
+
+.topParent h1 {
+    color: white;
+    text-shadow: black;
 }
 
 .topChild {
@@ -34,14 +52,18 @@ body {
     /* display: flex; */
     /* margin: 10px; */
     text-align: center;
+    
 }
 
 .topChild p {
     text-align: center;
     position: relative;
     top: -20px;
+    color: white;
     /* margin-bottom: 10px; */
 }
+
+
 
 .midParent {
     height: 50px;
@@ -60,6 +82,11 @@ body {
     text-align: center;
 }
 
+.midChild label {
+    color: white;
+    text-shadow: black;
+}
+
 .bottomParent {
     height: 100px;
     /* background: #CCCCCC; */
@@ -73,18 +100,26 @@ body {
     width: 1500px;
     height: 100px;
     text-align: center;
+    
+}
+
+.bottomChild p {
+    color: white;
+    font-size: 20px;
+    position: relative;
+    top: -27px;
 }
 
 .loader {
-    
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
     border-radius: 50%;
     width: 60px;
     height: 60px;
     animation: spin 2s linear infinite;
     margin: auto;
-    
+    position: relative;
+    top: 26px;
 }
   
   @keyframes spin {
@@ -188,10 +223,7 @@ ul {
 /* Search Bar */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-body{
-  background: #f2f2f2;
-  font-family: 'Open Sans', sans-serif;
-}
+
 
 .search {
   width: 70%;
@@ -201,14 +233,15 @@ body{
 }
 
 .searchTerm {
-  width: 100%;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #9DBFAF;
+    width: 100%;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    font-size: 20px;
 }
 
 .searchTerm:focus{

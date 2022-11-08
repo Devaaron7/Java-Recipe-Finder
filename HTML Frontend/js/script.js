@@ -29,6 +29,9 @@ var tagDict = {"tag1":"", "tag2":"", "tag3":""}
 var modeTitle = document.getElementById('ModeSelectTitle')
 var modeIngredient = document.getElementById('ModeSelectIngredient')
 var searchError = document.getElementById('noSearchResults')
+var recipeOneText = document.getElementById('recipeOne')
+var recipeTwoText = document.getElementById('recipeTwo')
+var recipeThreeText = document.getElementById('recipeThree')
 
 
 //Testing Button Functions
@@ -113,12 +116,15 @@ function setDataforResults() {
 
         img1.src = dataForSearchResults[0]["image"];
         link1.setAttribute("href", dataForSearchResults[0]["sourceUrl"])
+        recipeOneText.innerHTML = dataForSearchResults[0]["title"]
 
         img2.src = dataForSearchResults[1]["image"];
         link2.setAttribute("href", dataForSearchResults[1]["sourceUrl"])
+        recipeTwoText.innerHTML = dataForSearchResults[1]["title"]
 
         img3.src = dataForSearchResults[2]["image"];
         link3.setAttribute("href", dataForSearchResults[2]["sourceUrl"])
+        recipeThreeText.innerHTML = dataForSearchResults[2]["title"]
 
     hideLoader()
     search()
