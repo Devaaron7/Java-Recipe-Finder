@@ -21,6 +21,9 @@ var showTags = document.getElementById('ingredients')
 var tagOne = document.getElementById('tagOne')
 var tagTwo = document.getElementById('tagTwo')
 var tagThree = document.getElementById('tagThree')
+var tagOneShape = document.getElementById('tagOneShape')
+var tagTwoShape = document.getElementById('tagTwoShape')
+var tagThreeShape = document.getElementById('tagThreeShape')
 var foodTag = document.getElementById('foodTag')
 var credit = document.getElementById('api')
 var dataForSearchResults = []
@@ -218,16 +221,19 @@ function addTag() {
     
     if (tagCounter == 0) {
         tagOne.innerText = searchTerm.value;
+        tagOneShape.style.display = "flex"
         tagDict["tag1"] = searchTerm.value;
         searchTerm.value = ""
         tagCounter += 1
     } else if (tagCounter == 1) {
         tagTwo.innerText = searchTerm.value;
+        tagTwoShape.style.display = "flex"
         tagDict["tag2"] = searchTerm.value;
         searchTerm.value = ""
         tagCounter += 1 
     } else if (tagCounter == 2) {
         tagThree.innerText = searchTerm.value;
+        tagThreeShape.style.display = "flex"
         tagDict["tag3"] = searchTerm.value;
         searchTerm.value = ""
         searchTerm.disabled = true;
@@ -247,6 +253,9 @@ function clearTags() {
     tagDict["tag1"] = "";
     tagDict["tag2"] = "";
     tagDict["tag3"] = "";
+    tagOneShape.style.display = "none"
+    tagTwoShape.style.display = "none"
+    tagThreeShape.style.display = "none"
     searchTerm.disabled = false;
     
     

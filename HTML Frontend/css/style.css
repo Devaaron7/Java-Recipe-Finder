@@ -105,9 +105,11 @@ body {
 
 .bottomChild p {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     position: relative;
     top: -27px;
+    width: 324px;
+    text-align: center;
 }
 
 .loader {
@@ -145,8 +147,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items:center;
-    padding: 0 470px;
+    margin: 10px;
     
+    /* padding: 0 470px; */
+    
+    
+}
+
+.tags div {
+    background-color: #2aa703;
+    width: auto;
+    /* height: 37px; */
+    border-radius: 4px;
+    margin: 20px;
+    border-width:2px;
+    border-style:solid;
+    /* border-width: thin; */
+    border-color: rgb(255, 255, 255);
+    opacity: .95;
+}
+
+.tags p {
+    top: auto;
+    padding: 6px;
+    margin: auto;
+    color: white;
 }
 
 
@@ -234,7 +259,7 @@ ul {
 
 .searchTerm {
     width: 100%;
-    border: 3px solid #00B4CC;
+    border: 3px solid #2aa703;
     border-right: none;
     padding: 5px;
     height: 20px;
@@ -251,8 +276,8 @@ ul {
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
+  border: 1px solid #2aa703;
+  background: #2aa703;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
