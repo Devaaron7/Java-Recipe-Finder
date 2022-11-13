@@ -35,7 +35,7 @@ var searchError = document.getElementById('noSearchResults')
 var recipeOneText = document.getElementById('recipeOne')
 var recipeTwoText = document.getElementById('recipeTwo')
 var recipeThreeText = document.getElementById('recipeThree')
-
+var searchTitle = document.getElementById('searchSelection')
 
 //Testing Button Functions
 
@@ -99,8 +99,8 @@ function sendFormDataTitle() {
 
     data = [
         {"id":"000001", "title":"Test Title One", "sourceUrl":"https://www.google.com", "image":null},
-     {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.google.com", "image":null},
-      {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.google.com", "image":null}]
+     {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.nytimes.com", "image":"https://cdn.sanity.io/images/czqk28jt/prod_bk/f4dc27eb7337f7cbd12d3ccd840e6a031fcba622-360x270.jpg"},
+      {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.yahoo.com", "image":null}]
 
     for (i = 0; i < data.length; i++ ){
         dataForSearchResults.push(data[i]);
@@ -220,7 +220,10 @@ function showLoader() {
     //sendFormDataTitle()
 
     if (modeTitle.checked) {
+        //console.log("hello")
+        
         sendFormDataTitle()
+        
     }else{
         sendFormDataIngredient()
     }
@@ -240,7 +243,9 @@ function showTitle() {
     addIngredient.style.display = "none";
     clearIngredient.style.display = "none";
     showTags.style.display = "none";
-    document.getElementById('btn').innerHTML = "Title Search";
+    searchTitle.innerHTML = "Title Search";
+    searchTitle.style.display="block";
+    //document.getElementById('btn').innerHTML = "Title Search";
         
 }
 
@@ -250,7 +255,9 @@ function showIngredient() {
     addIngredient.style.display = "flex";
     clearIngredient.style.display = "flex";
     showTags.style.display = "flex";
-    document.getElementById('btn').innerHTML = "Ingredient Search";
+    searchTitle.innerHTML = "Ingredient Search";
+    searchTitle.style.display="block";
+    //document.getElementById('btn').innerHTML = "Ingredient Search";
     
 }
 

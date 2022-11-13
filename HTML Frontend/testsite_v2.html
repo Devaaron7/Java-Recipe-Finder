@@ -26,14 +26,36 @@
         
         <div class="midParent">
             <div class="midChild">
-                <input type="radio" id="ModeSelectTitle" name="ModeSelect" value="title" onclick=showTitle();>
-                <label for="html">Title Search</label>
-            
-                <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient" onclick=showIngredient();>
 
-                <label for="html">Ingredient Search</label>
+                <label>
+                    <input type="radio" id="ModeSelectTitle" name="ModeSelect" value="title" onclick=showTitle(); style="display: none;">
+
+                    
+
+                    <img src="./assets/food.png" alt="Title Search">
+
+                    <!-- <label for="html">Title Search</label> -->
+                </label>
+
+                
+            
+                <label>
+                    <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient" onclick=showIngredient(); style="display: none;">
+
+                    <img src="./assets/healthy-food.png" alt="Ingredient Search">
+
+                    <!-- <label for="html">Ingredient Search</label> -->
+                </label>
+
+                <div class="selection">
+                    <h2 id="searchSelection" style="display: none;">
+                    hello
+                    </h2>
+                </div>
 
                 <div class="button_center" id="buttons" style="display:none">
+
+                    
             
                     <input type="image" id="add"  type="search"  onclick=addTag() height="20px" src="./assets/plus.png" style="display:none" />
                     <input type="image" id="clear"  type="search"  onclick=clearTags() height="20px" src="./assets/minus.png" style="display:none" />
