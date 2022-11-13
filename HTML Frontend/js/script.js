@@ -44,16 +44,13 @@ function testDict() {
     console.log(tagDict);
 }
 
-// function api() {
-
-//     /// Kyle Continue work here. We need the website to change into "nightmode" is the counter displays 0
-//     var apiCounter = document.getElementById('api').innerText = Math.floor(Math.random() * 5);
-//     var errorText = document.getElementById('error').innerText
-//     if (apiCounter == 0) { 
-//         errorText = "OUT OF CREDIT"
-//     }
-// }
-
+function updateMissingImages() {
+    for(i = 0; i < dataForSearchResults.length; i++) {
+        if(dataForSearchResults[i]["image"] == null) {
+            dataForSearchResults[i]["image"] = "./assets/default_recipe_image.jpg"
+        }
+    }
+}
 
 // Connecting to Backend functions
 
@@ -81,6 +78,7 @@ function sendFormDataTitle() {
 
     console.log(dataForSearchResults);
 
+    updateMissingImages()
     getCredit()
     setDataforResults()
 
@@ -107,6 +105,7 @@ function sendFormDataIngredient() {
 
     console.log(dataForSearchResults);
 
+    updateMissingImages()
     getCredit()
     setDataforResults()
 
@@ -150,7 +149,15 @@ function getCredit() {
     
     console.log("Get Request complete! response:", data["credits"]);
 
-    credit.innerHTML = data["credits"];
+    creditCheck = data["credits"]
+
+    if(creditCheck == undefined) {
+        credit.innerHTML = 0;
+    } else {
+        credit.innerHTML = data["credits"];
+    }
+
+    
 
     }));
 }
