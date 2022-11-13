@@ -54,6 +54,39 @@ function updateMissingImages() {
 
 // Connecting to Backend functions
 
+// function sendFormDataTitle() {
+
+//     var stringToFormat = document.getElementById('form').value
+
+//     var formattedString = stringToFormat.replaceAll(" ", "&")
+
+//     var input = {"data":formattedString};
+
+//     console.log(JSON.stringify(input));
+//     fetch("http://localhost:8080/recipe", {
+//     method: "POST",
+//     headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
+//     body: JSON.stringify(input)
+//     }).then(res => res.json()
+//     .then(data =>{
+    
+//     console.log("Request complete! response:", data);
+
+//     for (i = 0; i < data.length; i++ ){
+//        dataForSearchResults.push(data[i]);
+//     }
+
+//     console.log(dataForSearchResults);
+
+//     updateMissingImages()
+//     getCredit()
+//     setDataforResults()
+
+//     }));
+// }
+
+
+//Test Version
 function sendFormDataTitle() {
 
     var stringToFormat = document.getElementById('form').value
@@ -63,27 +96,25 @@ function sendFormDataTitle() {
     var input = {"data":formattedString};
 
     console.log(JSON.stringify(input));
-    fetch("http://localhost:8080/recipe", {
-    method: "POST",
-    headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
-    body: JSON.stringify(input)
-    }).then(res => res.json()
-    .then(data =>{
-    
-    console.log("Request complete! response:", data);
+
+    data = [
+        {"id":"000001", "title":"Test Title One", "sourceUrl":"https://www.google.com", "image":null},
+     {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.google.com", "image":null},
+      {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.google.com", "image":null}]
 
     for (i = 0; i < data.length; i++ ){
-       dataForSearchResults.push(data[i]);
+        dataForSearchResults.push(data[i]);
+     }
+ 
+     console.log(dataForSearchResults);
+ 
+     updateMissingImages()
+     getCredit()
+     setDataforResults()
+
     }
 
-    console.log(dataForSearchResults);
-
-    updateMissingImages()
-    getCredit()
-    setDataforResults()
-
-    }));
-}
+   
 
 function sendFormDataIngredient() {
 
