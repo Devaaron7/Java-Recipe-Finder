@@ -23,23 +23,6 @@ public class JsonFormatter {
         Random randInt = new Random();
         int max = 0;
 
-
-        // Logic to correct a bug that will cause choosing a random index fail. The total amount of returned food
-        // items cannot be larger than 100 due to current limitations, even if the total amount in the database
-        // is more than 100. Example - Database has 400 items that return for "apple", but the Json will only contain
-        // a Maximum of 100. To avoid out of bounds index issues, setting up a conditional that will ensure we stay
-        // within the correct range.
-
-        int apiResultLength = api.get("results").size();
-
-        if (apiResultLength > 100) {
-            max = 99;
-        } else {
-            max = apiResultLength;
-        }
-
-
-
         // Making JSON Object of just the Food Results , ie - Title="Pasta", ID="123456"
         JsonNode recipeResults = api.get("results");
         ArrayList <JsonNode> chosenRecipesId = new ArrayList<>();
@@ -54,6 +37,38 @@ public class JsonFormatter {
         chosenFoodList.add(foodOne);
         chosenFoodList.add(foodTwo);
         chosenFoodList.add(foodThree);
+
+
+        // Logic to correct a bug that will cause choosing a random index fail. The total amount of returned food
+        // items cannot be larger than 100 due to current limitations, even if the total amount in the database
+        // is more than 100. Example - Database has 400 items that return for "apple", but the Json will only contain
+        // a Maximum of 100. To avoid out of bounds index issues, setting up a conditional that will ensure we stay
+        // within the correct range.
+
+
+        int apiResultLength = api.get("results").size();
+
+        if (apiResultLength == 0) {
+            for (int i = 0; i < 3; i++) {
+
+
+                chosenFoodList.get(i).put("id", "");
+                chosenFoodList.get(i).put("title", "");
+                chosenFoodList.get(i).put("sourceUrl", "");
+                chosenFoodList.get(i).put("image", "");
+
+            }
+
+            return chosenFoodList;
+        }
+
+
+        if (apiResultLength > 100) {
+            max = 99;
+        } else {
+            max = apiResultLength;
+        }
+
 
         // Gets three random food ids from the list of search results
         ArrayList <Integer> usedNum = new ArrayList<>();
@@ -159,13 +174,43 @@ public class JsonFormatter {
 
         //
         try {
+            // Gets three random food ids from the list of search results
+            ArrayList <Integer> usedNum = new ArrayList<>();
             for (int i = 0; i < 3; i++) {
 
-                chosenRecipesId.add(api.get("results").get(randInt.nextInt(max)).get("id"));
+                // Logic to ensure number choice isn't reused by checking array for past choices
+                boolean running = true;
+
+                while (running) {
+                    int tempNum = randInt.nextInt(max);
+                    if (usedNum.contains(tempNum) == false) {
+                        try {
+                            chosenRecipesId.add(api.get("results").get(tempNum).get("id"));
+                        }catch (NullPointerException e) {
+                            for (int x = 0; x < 3; x++) {
+
+
+                                chosenFoodList.get(x).put("id", "");
+                                chosenFoodList.get(x).put("title", "");
+                                chosenFoodList.get(x).put("sourceUrl", "");
+                                chosenFoodList.get(x).put("image", "");
+
+                            }
+
+                            return chosenFoodList;
+
+                        }
+
+                        usedNum.add(tempNum);
+                        running = false;
+                    }
+                }
+
 
             }
 
-        } catch (NullPointerException e) {
+
+        } catch (Exception e) {
             for (int i = 0; i < 3; i++) {
 
 

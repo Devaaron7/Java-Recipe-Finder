@@ -29,7 +29,13 @@ public class AllEndpointsForApp {
     @GetMapping(path="/credit")
     public HashMap<String, Double> credit() {
         HashMap<String, Double> remainingCredits = new HashMap<>();
-        double value = Double.parseDouble(InputForRecipeTitle.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+        double value = 0;
+        try {
+            value = Double.parseDouble(InputForRecipeTitle.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+        }catch (NullPointerException e){
+            value = Double.parseDouble(InputForIngredients.searchResponse.headers().firstValue("X-API-Quota-Left").get());
+        }
+
         remainingCredits.put("credits", value);
         return remainingCredits;
     }
@@ -60,6 +66,7 @@ public class AllEndpointsForApp {
         creditStatus(creditsLeft, creditsUsed, creditsRequested);
 
         return output;
+
 
     }
 

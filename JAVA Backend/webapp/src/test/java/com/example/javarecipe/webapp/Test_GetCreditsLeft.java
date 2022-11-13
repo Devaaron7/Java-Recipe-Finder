@@ -33,6 +33,7 @@ class Test_GetCreditsLeft {
             credit.getCreditsLeft();
             System.out.println("We have credits: " + credit.getCreditsLeft());
         } catch (Exception e) {
+            System.out.println("We're out of credits");
             assertThrows(NullPointerException.class,
                     () -> {
                         credit.getCreditsLeft();
