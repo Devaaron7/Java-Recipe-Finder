@@ -47,9 +47,9 @@ class Test_JsonFormatterTest {
 
         IngredientSearchData search = new IngredientSearchData();
 
-        search.setTag1("chicken");
-        search.setTag2("cheese");
-        search.setTag3("pasta");
+        search.setTag1("book");
+        search.setTag2("super");
+        search.setTag3("makeup");
 
         HashMap<String, String> emptyOne = new HashMap<>();
         HashMap<String, String> emptyTwo = new HashMap<>();
