@@ -17,21 +17,15 @@ html {
    
   }
 
-body {
-
+  body {
     background-color: rgb(28 28 28 / 63%);
     width: auto;
-    height: 900px;
-   
-    /* justify-content: center;
-    align-items: center; */
-    
-
+    height: 1300px;
 }
 
 
 .topParent {
-    height: 100px;
+    height: 200px;
     
     display: flex;
     align-items: center;
@@ -80,6 +74,11 @@ body {
     border: 10px;
     
     text-align: center;
+}
+
+#add, #clear{
+    height: 30px;
+    cursor: pointer;
 }
 
 .midChild label {
@@ -148,6 +147,7 @@ body {
 
 .midChild .selection h2 {
     color: white;
+    margin: 6px;
 }
 
 .loader {
@@ -159,7 +159,7 @@ body {
     animation: spin 2s linear infinite;
     margin: auto;
     position: relative;
-    top: 26px;
+    top: 115px;
 }
   
   @keyframes spin {
@@ -218,7 +218,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 80px;
+    padding: 95px;
     /* gap: 10px; */
 }
 
