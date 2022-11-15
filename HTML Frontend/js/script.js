@@ -29,6 +29,9 @@ var tagDict = {"tag1":"", "tag2":"", "tag3":""}
 var modeTitle = document.getElementById('ModeSelectTitle')
 var modeIngredient = document.getElementById('ModeSelectIngredient')
 var searchError = document.getElementById('noSearchResults')
+var recipeOneText = document.getElementById('recipeOne')
+var recipeTwoText = document.getElementById('recipeTwo')
+var recipeThreeText = document.getElementById('recipeThree')
 
 
 //Testing Button Functions
@@ -56,14 +59,11 @@ function sendFormDataTitle() {
     var input = {"data":document.getElementById('form').value};
 
     console.log(JSON.stringify(input));
-    fetch("http://localhost:8080/recipe", {
-    method: "POST",
-    headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
-    body: JSON.stringify(input)
-    }).then(res => res.json()
-    .then(data =>{
-    
-    console.log("Request complete! response:", data);
+
+    data = [
+        {"id":"000001", "title":"Test Title One", "sourceUrl":"https://www.google.com", "image":null},
+     {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.google.com", "image":null},
+      {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.google.com", "image":null}]
 
     for (i = 0; i < data.length; i++ ){
        dataForSearchResults.push(data[i]);

@@ -27,25 +27,44 @@
             <input type="radio" id="ModeSelectTitle" name="ModeSelect" value="title" onclick=showTitle();>
             <label for="html">Title Search</label>
         
-            <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient" onclick=showIngredient();>
+        <div class="midParent">
+            <div class="midChild">
+                <input type="radio" id="ModeSelectTitle" name="ModeSelect" value="title" onclick=showTitle();>
+                <label for="html">Title Search</label>
+            
+                <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient" onclick=showIngredient();>
 
-            <label for="html">Ingredient Search</label>
+                <label for="html">Ingredient Search</label>
 
-            <div class="button_center" id="buttons" style="display:none">
-        
-                <input type="image" id="add"  type="search"  onclick=addTag() height="20px" src="./assets/plus.png" style="display:none" />
-                <input type="image" id="clear"  type="search"  onclick=clearTags() height="20px" src="./assets/minus.png" style="display:none" />
+                <div class="button_center" id="buttons" style="display:none">
+            
+                    <input type="image" id="add"  type="search"  onclick=addTag() height="20px" src="./assets/plus.png" style="display:none" />
+                    <input type="image" id="clear"  type="search"  onclick=clearTags() height="20px" src="./assets/minus.png" style="display:none" />
 
-                 <div class="search">
-                    <input type="form" id="form" class="searchTerm">
-                    <button type="text" oninput=showIconTitle() class="searchButton">
-                    
-                    <i class="fa fa-search" onclick=showLoader() aria-hidden="true"></i>
-                   </button>
-                 </div>
-                <!-- <input id="form" type="text" oninput=showIconTitle()> -->
-                <!-- <input type="image" id="btn"  type="search"  onclick=showLoader() height="35px" src="./assets/search.png" style="display:none" /> -->
-        
+                    <div class="search">
+                        <input type="form" id="form" class="searchTerm">
+                        <button type="text" oninput=showIconTitle() class="searchButton">
+                        
+                        <i class="fa fa-search" onclick=showLoader() aria-hidden="true"></i>
+                    </button>
+                    </div>
+            
+                </div>
+
+                <div class="tags" id="ingredients" style="display:none">
+                    <div id="tagOneShape" style="display:none">
+                        <p id="tagOne">&emsp;</p>
+                    </div>
+
+                    <div id="tagTwoShape" style="display:none">
+                        <p id="tagTwo">&emsp;</p>
+                    </div>
+
+                    <div id="tagThreeShape" style="display:none">
+                        <p id="tagThree">&emsp;</p>
+                    </div>
+                </div>
+
             </div>
 
             <div class="tags" id="ingredients" style="display:none">
