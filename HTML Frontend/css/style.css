@@ -76,11 +76,11 @@ html {
     text-align: center;
 }
 
-.midChild .addButton #add, #clear {
-    height: 30px;
-    border: 0px;
-    opacity: 1;
-}
+/* #add, #clear {
+    height: 60px;
+    
+    
+} */
 
 /* #add, #clear {
     
