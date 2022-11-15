@@ -74,8 +74,8 @@ function sendFormDataTitle() {
     getCredit()
     setDataforResults()
 
-    }));
-}
+    };
+
 
 function sendFormDataIngredient() {
 
