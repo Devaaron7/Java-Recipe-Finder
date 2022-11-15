@@ -128,12 +128,15 @@ html {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 .midChild .selection h2 {
     color: white;
     margin: 6px;
 }
 
+=======
+>>>>>>> parent of 846a4a8 (added icons for searches)
 =======
 >>>>>>> parent of 846a4a8 (added icons for searches)
 .loader {
@@ -205,7 +208,12 @@ html {
     flex-wrap:wrap;
     justify-content: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
     padding: 95px;
+=======
+    padding: 20px;
+    
+>>>>>>> parent of 846a4a8 (added icons for searches)
 =======
     padding: 20px;
     

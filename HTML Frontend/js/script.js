@@ -78,6 +78,9 @@ function sendFormDataTitle() {
         {"id":"000001", "title":"Test Title One", "sourceUrl":"https://www.google.com", "image":null},
      {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.google.com", "image":null},
       {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.google.com", "image":null}]
+<<<<<<< HEAD
+>>>>>>> parent of 846a4a8 (added icons for searches)
+=======
 >>>>>>> parent of 846a4a8 (added icons for searches)
 
     for (i = 0; i < data.length; i++ ){
