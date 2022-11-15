@@ -1,5 +1,10 @@
-html,
-body { height: 100%;
+body { 
+    background-image: url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg);
+
+    /* opacity: 0.2; */
+    height: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 .topParent {
@@ -18,7 +23,7 @@ body { height: 100%;
 }
 
 .midParent {
-    height: 100px;
+    height: 50px;
     /* background: #CCCCCC; */
     display: flex;
     align-items: center;
