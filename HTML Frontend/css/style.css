@@ -76,10 +76,17 @@ html {
     text-align: center;
 }
 
-#add, #clear{
+.midChild .addButton #add, #clear {
+    height: 30px;
+    border: 0px;
+    opacity: 1;
+}
+
+/* #add, #clear {
+    
     height: 30px;
     cursor: pointer;
-}
+} */
 
 .midChild label {
     color: white;
