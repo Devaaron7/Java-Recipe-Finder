@@ -35,7 +35,7 @@ var searchError = document.getElementById('noSearchResults')
 var recipeOneText = document.getElementById('recipeOne')
 var recipeTwoText = document.getElementById('recipeTwo')
 var recipeThreeText = document.getElementById('recipeThree')
-var searchTitle = document.getElementById('searchSelection')
+
 
 //Testing Button Functions
 
@@ -220,10 +220,7 @@ function showLoader() {
     //sendFormDataTitle()
 
     if (modeTitle.checked) {
-        //console.log("hello")
-        
         sendFormDataTitle()
-        
     }else{
         sendFormDataIngredient()
     }
@@ -243,9 +240,7 @@ function showTitle() {
     addIngredient.style.display = "none";
     clearIngredient.style.display = "none";
     showTags.style.display = "none";
-    searchTitle.innerHTML = "Title Search";
-    searchTitle.style.display="block";
-    //document.getElementById('btn').innerHTML = "Title Search";
+    document.getElementById('btn').innerHTML = "Title Search";
         
 }
 
@@ -255,9 +250,7 @@ function showIngredient() {
     addIngredient.style.display = "flex";
     clearIngredient.style.display = "flex";
     showTags.style.display = "flex";
-    searchTitle.innerHTML = "Ingredient Search";
-    searchTitle.style.display="block";
-    //document.getElementById('btn').innerHTML = "Ingredient Search";
+    document.getElementById('btn').innerHTML = "Ingredient Search";
     
 }
 
