@@ -1,0 +1,193 @@
+html,
+body { height: 100%;
+}
+
+.topParent {
+    height: 100px;
+    /* background: #CCCCCC; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topChild {
+    /* background-color: #FFFF00; */
+    width: 500px;
+    height: 100px;
+    text-align: center;
+}
+
+.midParent {
+    height: 100px;
+    /* background: #CCCCCC; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.midChild {
+    /* background-color: #0084ff; */
+    width: 500px;
+    height: 100px;
+    text-align: center;
+}
+
+.bottomParent {
+    height: 100px;
+    /* background: #CCCCCC; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottomChild {
+    /* background-color: #df3593; */
+    width: 1500px;
+    height: 100px;
+    text-align: center;
+}
+
+.loader {
+    
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+    
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.button_center {
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    
+}
+
+.button_center input {
+    text-align: center;
+}
+
+.tags {
+
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 470px;
+    
+}
+
+
+.images {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+#image1 {
+
+    position: relative;
+    animation: mymove1 .5s 1;
+    animation-timing-function: linear;
+    
+}
+
+#image2 {
+    
+    position: relative;
+    animation: mymove2 .6s 1;
+    animation-timing-function: linear;
+    
+}
+
+#image3 {
+    
+    position: relative;
+    animation: mymove3 .7s 1;
+    animation-timing-function: linear;
+    
+}
+
+@keyframes mymove1 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+
+@keyframes mymove2 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+
+@keyframes mymove3 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+
+
+/* Search Bar */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 70%;
+  position: relative;
+  display: flex;
+  align-content: center;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
