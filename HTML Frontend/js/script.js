@@ -54,6 +54,7 @@ function updateMissingImages() {
 
 // Connecting to Backend functions
 
+<<<<<<< HEAD
 function sendFormDataTitle() {
 
     var stringToFormat = document.getElementById('form').value
@@ -98,6 +99,8 @@ function sendFormDataTitle() {
 
 
 //Test Version
+=======
+>>>>>>> parent of 2bd6370 (Working on add clear button fix)
 // function sendFormDataTitle() {
 
 //     var stringToFormat = document.getElementById('form').value
@@ -107,23 +110,56 @@ function sendFormDataTitle() {
 //     var input = {"data":formattedString};
 
 //     console.log(JSON.stringify(input));
-
-//     data = [
-//         {"id":"000001", "title":"Test Title One", "sourceUrl":"https://www.google.com", "image":null},
-//      {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.nytimes.com", "image":"https://cdn.sanity.io/images/czqk28jt/prod_bk/f4dc27eb7337f7cbd12d3ccd840e6a031fcba622-360x270.jpg"},
-//       {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.yahoo.com", "image":null}]
+//     fetch("http://localhost:8080/recipe", {
+//     method: "POST",
+//     headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
+//     body: JSON.stringify(input)
+//     }).then(res => res.json()
+//     .then(data =>{
+    
+//     console.log("Request complete! response:", data);
 
 //     for (i = 0; i < data.length; i++ ){
-//         dataForSearchResults.push(data[i]);
-//      }
- 
-//      console.log(dataForSearchResults);
- 
-//      updateMissingImages()
-//      getCredit()
-//      setDataforResults()
-
+//        dataForSearchResults.push(data[i]);
 //     }
+
+//     console.log(dataForSearchResults);
+
+//     updateMissingImages()
+//     getCredit()
+//     setDataforResults()
+
+//     }));
+// }
+
+
+//Test Version
+function sendFormDataTitle() {
+
+    var stringToFormat = document.getElementById('form').value
+
+    var formattedString = stringToFormat.replaceAll(" ", "&")
+
+    var input = {"data":formattedString};
+
+    console.log(JSON.stringify(input));
+
+    data = [
+        {"id":"000001", "title":"Test Title One", "sourceUrl":"https://www.google.com", "image":null},
+     {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.nytimes.com", "image":"https://cdn.sanity.io/images/czqk28jt/prod_bk/f4dc27eb7337f7cbd12d3ccd840e6a031fcba622-360x270.jpg"},
+      {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.yahoo.com", "image":null}]
+
+    for (i = 0; i < data.length; i++ ){
+        dataForSearchResults.push(data[i]);
+     }
+ 
+     console.log(dataForSearchResults);
+ 
+     updateMissingImages()
+     getCredit()
+     setDataforResults()
+
+    }
 
    
 

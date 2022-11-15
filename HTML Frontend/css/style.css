@@ -17,15 +17,21 @@ html {
    
   }
 
-  body {
+body {
+
     background-color: rgb(28 28 28 / 63%);
     width: auto;
-    height: 1300px;
+    height: 900px;
+   
+    /* justify-content: center;
+    align-items: center; */
+    
+
 }
 
 
 .topParent {
-    height: 200px;
+    height: 100px;
     
     display: flex;
     align-items: center;
@@ -76,6 +82,7 @@ html {
     text-align: center;
 }
 
+<<<<<<< HEAD
 /* #add, #clear {
     height: 60px;
     
@@ -88,6 +95,8 @@ html {
     cursor: pointer;
 } */
 
+=======
+>>>>>>> parent of 2bd6370 (Working on add clear button fix)
 .midChild label {
     color: white;
     text-shadow: black;
@@ -132,7 +141,6 @@ html {
 
 .midChild .selection h2 {
     color: white;
-    margin: 6px;
 }
 
 =======
@@ -148,7 +156,7 @@ html {
     animation: spin 2s linear infinite;
     margin: auto;
     position: relative;
-    top: 115px;
+    top: 26px;
 }
   
   @keyframes spin {
@@ -209,6 +217,7 @@ html {
     justify-content: center;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     padding: 95px;
 =======
     padding: 20px;
@@ -218,6 +227,9 @@ html {
     padding: 20px;
     
 >>>>>>> parent of 846a4a8 (added icons for searches)
+=======
+    padding: 80px;
+>>>>>>> parent of 2bd6370 (Working on add clear button fix)
     /* gap: 10px; */
     
 }
