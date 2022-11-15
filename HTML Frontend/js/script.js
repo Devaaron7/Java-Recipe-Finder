@@ -146,8 +146,8 @@ function sendFormDataTitle() {
 
     data = [
         {"id":"000001", "title":"Test Title One", "sourceUrl":"https://www.google.com", "image":null},
-     {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.nytimes.com", "image":"https://cdn.sanity.io/images/czqk28jt/prod_bk/f4dc27eb7337f7cbd12d3ccd840e6a031fcba622-360x270.jpg"},
-      {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.yahoo.com", "image":null}]
+     {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.google.com", "image":null},
+      {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.google.com", "image":null}]
 
     for (i = 0; i < data.length; i++ ){
         dataForSearchResults.push(data[i]);
