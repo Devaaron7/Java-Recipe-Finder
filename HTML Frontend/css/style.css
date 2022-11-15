@@ -36,8 +36,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    
 }
 
 .topParent h1 {
@@ -47,10 +45,8 @@ body {
 
 .topChild {
     /* background-color: #FFFF00; */
-    width: 365px;
-    height: 150px;
-    /* display: flex; */
-    /* margin: 10px; */
+    width: 500px;
+    height: 100px;
     text-align: center;
     
 }
@@ -76,9 +72,7 @@ body {
 .midChild {
     background-color: #0084ff00;
     width: 500px;
-    /* height: 100px; */
-    border: 10px;
-    
+    height: 100px;
     text-align: center;
 }
 
@@ -187,17 +181,14 @@ body {
 .images {
 
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
-    
-    /* gap: 10px; */
+    gap: 10px;
     
 }
 
 ul {
     list-style-type: none;
-    
 }
 
 
@@ -206,11 +197,6 @@ ul {
     position: relative;
     animation: mymove1 .5s 1;
     animation-timing-function: linear;
-    background-color: black;
-    padding: 2px;
-    margin: 10px;
-    object-fit: fill;
-
     
 }
 
@@ -219,10 +205,6 @@ ul {
     position: relative;
     animation: mymove2 .6s 1;
     animation-timing-function: linear;
-    background-color: black;
-    padding: 2px;
-    margin: 10px;
-    object-fit: fill;
     
 }
 
@@ -231,10 +213,6 @@ ul {
     position: relative;
     animation: mymove3 .7s 1;
     animation-timing-function: linear;
-    background-color: black;
-    padding: 2px;
-    margin: 10px;
-    object-fit: fill;
     
 }
 
