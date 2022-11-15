@@ -1,18 +1,30 @@
-body { 
+html {
+    background-color: #00b4cc00;
     background-image: url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg);
+    background-position: center;
+    /* width: 365px;
+    height: 150px; */
+    /* background-size: cover; */
+} 
+
+
+body { 
+    
+    
 
     /* opacity: 0.2; */
-    height: 100%;
-    background-position: center;
-    background-size: cover;
+    /* height: 100%; */
+    
 }
 
 .topParent {
     height: 100px;
-    /* background: #CCCCCC; */
+    background: #cccccc00;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    
 }
 
 .topChild {
@@ -20,6 +32,13 @@ body {
     width: 500px;
     height: 100px;
     text-align: center;
+}
+
+.topChild p {
+    text-align: center;
+    position: relative;
+    top: -20px;
+    /* margin-bottom: 10px; */
 }
 
 .midParent {
