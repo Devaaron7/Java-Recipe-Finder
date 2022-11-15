@@ -1,32 +1,5 @@
-html {
-    /* background-image: url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg);
-    background-position: center; */
-    background:
-    radial-gradient(#000 0.5px,transparent 0.5px) 0   0   /3px 3px,
-    radial-gradient(#000 0.5px,transparent 0.5px) 1px 1px /3px 3px,
-    radial-gradient(#000 0.5px,transparent 0.5px) 2px 2px /3px 3px,
-    url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg) center/cover;
-
-    font-family: 'Open Sans', sans-serif;
-    
-    /* width: 365px;
-    height: 150px; */
-    /* background-size: cover; */
-
-  
-   
-  }
-
-body {
-
-    background-color: rgb(28 28 28 / 63%);
-    width: auto;
-    height: 900px;
-   
-    /* justify-content: center;
-    align-items: center; */
-    
-
+html,
+body { height: 100%;
 }
 
 
@@ -38,11 +11,6 @@ body {
     justify-content: center;
 }
 
-.topParent h1 {
-    color: white;
-    text-shadow: black;
-}
-
 .topChild {
     /* background-color: #FFFF00; */
     width: 500px;
@@ -51,19 +19,9 @@ body {
     
 }
 
-.topChild p {
-    text-align: center;
-    position: relative;
-    top: -20px;
-    color: white;
-    /* margin-bottom: 10px; */
-}
-
-
-
 .midParent {
-    height: 50px;
-    background: #cccccc00;
+    height: 100px;
+    /* background: #CCCCCC; */
     display: flex;
     align-items: center;
     justify-content: center;
