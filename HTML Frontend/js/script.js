@@ -35,7 +35,7 @@ var searchError = document.getElementById('noSearchResults')
 var recipeOneText = document.getElementById('recipeOne')
 var recipeTwoText = document.getElementById('recipeTwo')
 var recipeThreeText = document.getElementById('recipeThree')
-var searchTitle = document.getElementById('searchSelection')
+
 
 //Testing Button Functions
 
@@ -63,6 +63,7 @@ function sendFormDataTitle() {
     var input = {"data":formattedString};
 
     console.log(JSON.stringify(input));
+<<<<<<< HEAD
     fetch("http://localhost:8080/recipe", {
     method: "POST",
     headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
@@ -71,6 +72,13 @@ function sendFormDataTitle() {
     .then(data =>{
     
     console.log("Request complete! response:", data);
+=======
+
+    data = [
+        {"id":"000001", "title":"Test Title One", "sourceUrl":"https://www.google.com", "image":null},
+     {"id":"000002", "title":"Test Title Two", "sourceUrl":"https://www.google.com", "image":null},
+      {"id":"000003", "title":"Test Title Three", "sourceUrl":"https://www.google.com", "image":null}]
+>>>>>>> parent of 846a4a8 (added icons for searches)
 
     for (i = 0; i < data.length; i++ ){
        dataForSearchResults.push(data[i]);
@@ -220,10 +228,7 @@ function showLoader() {
     //sendFormDataTitle()
 
     if (modeTitle.checked) {
-        //console.log("hello")
-        
         sendFormDataTitle()
-        
     }else{
         sendFormDataIngredient()
     }
@@ -243,9 +248,7 @@ function showTitle() {
     addIngredient.style.display = "none";
     clearIngredient.style.display = "none";
     showTags.style.display = "none";
-    searchTitle.innerHTML = "Title Search";
-    searchTitle.style.display="block";
-    //document.getElementById('btn').innerHTML = "Title Search";
+    document.getElementById('btn').innerHTML = "Title Search";
         
 }
 
@@ -255,9 +258,7 @@ function showIngredient() {
     addIngredient.style.display = "flex";
     clearIngredient.style.display = "flex";
     showTags.style.display = "flex";
-    searchTitle.innerHTML = "Ingredient Search";
-    searchTitle.style.display="block";
-    //document.getElementById('btn').innerHTML = "Ingredient Search";
+    document.getElementById('btn').innerHTML = "Ingredient Search";
     
 }
 

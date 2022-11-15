@@ -93,24 +93,6 @@ html {
     text-shadow: black;
 }
 
-.midChild img {
-    height: 120px;
-    border: 8px;
-    border-color: white;
-    border-style: solid;
-    border-radius: 4px;
-    padding: 5px;
-    margin: 15px;
-    opacity: 0.7;
-    cursor: pointer;
-}
-
-.midChild img:hover {
-    opacity: 1;
-}
-
-
-
 .bottomParent {
     height: 100px;
     /* background: #CCCCCC; */
@@ -136,14 +118,8 @@ html {
     text-align: center;
 }
 
-
 .bottomChild h2 {
     color: white;
-    margin-bottom: 8px;
-    margin-top: 0px;
-    
-   
-    
     /* font-size: 18px;
     position: relative;
     top: -27px;
@@ -151,12 +127,15 @@ html {
     text-align: center; */
 }
 
+<<<<<<< HEAD
 
 .midChild .selection h2 {
     color: white;
     margin: 6px;
 }
 
+=======
+>>>>>>> parent of 846a4a8 (added icons for searches)
 .loader {
     border: 16px solid #f3f3f3;
     border-top: 16px solid #3498db;
@@ -206,7 +185,6 @@ html {
     border-radius: 4px;
     margin: 20px;
     border-width:2px;
-
     border-style:solid;
     /* border-width: thin; */
     border-color: rgb(255, 255, 255);
@@ -222,11 +200,18 @@ html {
 
 
 .images {
+
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     justify-content: center;
+<<<<<<< HEAD
     padding: 95px;
+=======
+    padding: 20px;
+    
+>>>>>>> parent of 846a4a8 (added icons for searches)
     /* gap: 10px; */
+    
 }
 
 ul {
