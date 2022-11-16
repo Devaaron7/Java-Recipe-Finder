@@ -27,9 +27,10 @@ public class AllEndpointsForApp {
 
     // Sends remaining credits to the front end as a String. Credits reset 8PM EST ( 12AM UTC)
     @GetMapping(path="/credit")
-    public HashMap<String, Double> credit() {
+    public HashMap<String, Double> credit() throws IOException, InterruptedException {
         HashMap<String, Double> remainingCredits = new HashMap<>();
         double value = 0;
+        InputForRecipeTitle.term("null");
         try {
             value = Double.parseDouble(InputForRecipeTitle.searchResponse.headers().firstValue("X-API-Quota-Left").get());
         }catch (NullPointerException e){
