@@ -36,8 +36,22 @@ var recipeOneText = document.getElementById('recipeOne')
 var recipeTwoText = document.getElementById('recipeTwo')
 var recipeThreeText = document.getElementById('recipeThree')
 
+var middleSection = document.getElementById('midSection')
+var lowerSection = document.getElementById('lowSection')
+var kitchenStatus = document.getElementById('apiError')
+
 
 //Testing Button Functions
+
+function kitchenClosed() {
+    if(credit.innerHTML <= 0) {
+        middleSection.style.display='none';
+        lowerSection.style.display='none';
+        kitchenStatus.innerHTML = "The Kitchen Is Closed. Please return after 8PM EST"
+    }
+
+    
+}
 
 
 function testDict() {
@@ -116,6 +130,7 @@ function sendFormDataTitle() {
 
    
 
+
 function sendFormDataIngredient() {
 
     //var input = {"data":document.getElementById('form').value};
@@ -185,12 +200,16 @@ function getCredit() {
     if(creditCheck == undefined) {
         credit.innerHTML = 0;
     } else {
-        credit.innerHTML = data["credits"];
+       
+        credit.innerHTML = Number(data["credits"])
     }
+
+    kitchenClosed();
+
+    }));
 
     
 
-    }));
 }
 
 
