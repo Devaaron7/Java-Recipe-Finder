@@ -1,0 +1,299 @@
+html {
+    /* background-image: url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg);
+    background-position: center; */
+    background:
+    radial-gradient(#000 0.5px,transparent 0.5px) 0   0   /3px 3px,
+    radial-gradient(#000 0.5px,transparent 0.5px) 1px 1px /3px 3px,
+    radial-gradient(#000 0.5px,transparent 0.5px) 2px 2px /3px 3px,
+    url(/assets/brooke-lark-HlNcigvUi4Q-unsplash.jpg) center/cover;
+
+    font-family: 'Open Sans', sans-serif;
+    
+    /* width: 365px;
+    height: 150px; */
+    /* background-size: cover; */
+
+  
+   
+  }
+
+body {
+    background-color: rgb(28 28 28 / 63%);
+    width: auto;
+    height: 1100px;
+}
+
+
+.topParent {
+    height: 100px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.topParent h1 {
+    color: white;
+    text-shadow: black;
+}
+
+.topChild {
+    /* background-color: #FFFF00; */
+    width: 365px;
+    height: 150px;
+    /* display: flex; */
+    /* margin: 10px; */
+    text-align: center;
+    
+}
+
+.topChild p {
+    text-align: center;
+    position: relative;
+    top: -20px;
+    color: white;
+    /* margin-bottom: 10px; */
+}
+
+
+
+.midParent {
+    height: 50px;
+    background: #cccccc00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.midChild {
+    background-color: #0084ff00;
+    width: 500px;
+    /* height: 100px; */
+    border: 10px;
+    
+    text-align: center;
+}
+
+.midChild label {
+    color: white;
+    text-shadow: black;
+}
+
+.bottomParent {
+    height: 100px;
+    /* background: #CCCCCC; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottomChild {
+    /* background-color: #df3593; */
+    width: 1500px;
+    height: 100px;
+    text-align: center;
+    
+}
+
+.bottomChild p {
+    color: white;
+    font-size: 18px;
+    position: relative;
+    top: -27px;
+    width: 324px;
+    text-align: center;
+}
+
+.bottomChild h2 {
+    color: white;
+    /* font-size: 18px;
+    position: relative;
+    top: -27px;
+    width: 324px;
+    text-align: center; */
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+    position: relative;
+    top: 26px;
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.button_center {
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    
+}
+
+.button_center input {
+    text-align: center;
+}
+
+.tags {
+
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: 10px;
+    
+    /* padding: 0 470px; */
+    
+    
+}
+
+.tags div {
+    background-color: #2aa703;
+    width: auto;
+    /* height: 37px; */
+    border-radius: 4px;
+    margin: 20px;
+    border-width:2px;
+    border-style:solid;
+    /* border-width: thin; */
+    border-color: rgb(255, 255, 255);
+    opacity: .95;
+}
+
+.tags p {
+    top: auto;
+    padding: 6px;
+    margin: auto;
+    color: white;
+}
+
+
+.images {
+
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    padding: 20px;
+    
+    /* gap: 10px; */
+    
+}
+
+ul {
+    list-style-type: none;
+    
+}
+
+
+#image1 {
+
+    position: relative;
+    animation: mymove1 .5s 1;
+    animation-timing-function: linear;
+    background-color: black;
+    padding: 2px;
+    margin: 10px;
+    object-fit: fill;
+
+    
+}
+
+#image2 {
+    
+    position: relative;
+    animation: mymove2 .6s 1;
+    animation-timing-function: linear;
+    background-color: black;
+    padding: 2px;
+    margin: 10px;
+    object-fit: fill;
+    
+}
+
+#image3 {
+    
+    position: relative;
+    animation: mymove3 .7s 1;
+    animation-timing-function: linear;
+    background-color: black;
+    padding: 2px;
+    margin: 10px;
+    object-fit: fill;
+    
+}
+
+@keyframes mymove1 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+
+@keyframes mymove2 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+
+@keyframes mymove3 {
+    from {top: 300px; opacity: .01;}
+    to {top: 0px; opacity: 1;}
+}
+
+
+/* Search Bar */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+
+.search {
+  width: 70%;
+  position: relative;
+  display: flex;
+  align-content: center;
+}
+
+.searchTerm {
+    width: 100%;
+    border: 3px solid #2aa703;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    font-size: 20px;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #2aa703;
+  background: #2aa703;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

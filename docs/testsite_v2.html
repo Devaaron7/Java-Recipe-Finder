@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" >
+
+
+    
+</head>
+<body onload=getCredit();>
+
+    <main>
+
+    
+        <div class="topParent">
+            <div class="topChild">
+                <h1>Java Recipe Finder</h1>
+                <p id="api">0</p>
+                <h1 id="apiError"></h1>
+
+            </div>
+        </div>
+        
+        <div class="midParent" id="midSection">
+            <div class="midChild">
+                <input type="radio" id="ModeSelectTitle" name="ModeSelect" value="title" onclick=showTitle();>
+                <label for="html">Title Search</label>
+            
+                <input type="radio" id="ModeSelectIngredient" name="ModeSelect" value="ingredient" onclick=showIngredient();>
+
+                <label for="html">Ingredient Search</label>
+
+                <div class="button_center" id="buttons" style="display:none">
+            
+                    <input type="image" id="add"  type="search"  onclick=addTag() height="30px" src="./assets/plus.png" style="display:none" />
+
+
+                    <input type="image" id="clear"  type="search"  onclick=clearTags() height="30px" src="./assets/minus.png" style="display:none" />
+
+                    <div class="search">
+                        <input type="form" id="form" class="searchTerm">
+                        <button type="text" oninput=showIconTitle() class="searchButton">
+                        
+                        <i class="fa fa-search" onclick=showLoader() aria-hidden="true"></i>
+                    </button>
+                    </div>
+            
+                </div>
+
+                <div class="tags" id="ingredients" style="display:none">
+                    <div id="tagOneShape" style="display:none">
+                        <p id="tagOne">&emsp;</p>
+                    </div>
+
+                    <div id="tagTwoShape" style="display:none">
+                        <p id="tagTwo">&emsp;</p>
+                    </div>
+
+                    <div id="tagThreeShape" style="display:none">
+                        <p id="tagThree">&emsp;</p>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    
+
+        <div class="bottomParent" id="lowSection">
+            <div class="bottomChild">
+
+                <div class="loader" id="loader" style="display:none"></div>
+
+                <ul class="images" id="img_container" style="display:none">
+
+                    <li>
+                        <a href="#" id="link1"><img src="./image_1.jpg" alt="#" id="image1" height="200" width="300" ></a>
+                        <p id="recipeOne"></p>
+                    </li>
+
+                    <li>
+                        <a href="#" id="link2"><img src="./image_1.jpg" alt="#" id="image2" height="200" width="300" ></a>
+                        <p id="recipeTwo"></p>
+                    </li>
+
+                    <li>
+                        <a href="#" id="link3"><img src="./image_1.jpg" alt="#" id="image3" height="200" width="300" ></a>
+                        <p id="recipeThree"></p>
+                    </li>
+                
+                </ul>
+
+                <div class="noResultsError">
+                    <h2 id="noSearchResults"></h2>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main> 
+    
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="./js/script.js"></script>
+
+
+
+</body>
+</html>
