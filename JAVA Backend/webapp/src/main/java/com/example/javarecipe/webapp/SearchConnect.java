@@ -4,7 +4,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import secret.ApiKey;
+
 
 public class SearchConnect {
 
@@ -17,7 +17,7 @@ public class SearchConnect {
                 .newBuilder()
                 .uri(URI.create("https://api.spoonacular.com/recipes/complexSearch?query=" +
                         searchTerm + "&number=100&apiKey=" +
-                        ApiKey.getKey("key")))
+                        secret.ApiKey.getKey("key")))
                 .GET()
                 .header("Accept", "application/json")
                 .build();
@@ -44,7 +44,7 @@ public class SearchConnect {
                         searchTermOne + "&includeIngredients=" +
                         searchTermTwo + ",+"+
                         searchTermThree + "&number=100&apiKey=" +
-                        ApiKey.getKey("key")))
+                        secret.ApiKey.getKey("key")))
                 .GET()
                 .header("Accept", "application/json")
                 .build();
@@ -96,7 +96,7 @@ public class SearchConnect {
                 .uri(URI.create("https://api.spoonacular.com/recipes/" +
                         foodId +
                         "/information?includeNutrition=false&&apiKey=" +
-                        ApiKey.getKey("key")))
+                        secret.ApiKey.getKey("key")))
                 .GET()
                 .header("Accept", "application/json")
                 .build();

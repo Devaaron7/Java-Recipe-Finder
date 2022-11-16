@@ -77,7 +77,7 @@ function sendFormDataTitle() {
     var input = {"data":formattedString};
 
     console.log(JSON.stringify(input));
-    fetch("http://localhost:8080/recipe", {
+    fetch("https://javarecipeapp.herokuapp.com/recipe", {
     method: "POST",
     headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
     body: JSON.stringify(input)
@@ -136,7 +136,7 @@ function sendFormDataIngredient() {
     //var input = {"data":document.getElementById('form').value};
 
     console.log(JSON.stringify(tagDict));
-    fetch("http://localhost:8080/ingredient", {
+    fetch("https://javarecipeapp.herokuapp.com/ingredient", {
     method: "POST",
     headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
     body: JSON.stringify(tagDict)
@@ -187,7 +187,7 @@ function setDataforResults() {
 
 function getCredit() {
 
-    fetch("http://localhost:8080/credit", {
+    fetch("https://javarecipeapp.herokuapp.com/credit", {
     method: "GET",
     headers: {mode: 'cors', 'Content-Type': 'application/json'}, 
     }).then(res => res.json()
